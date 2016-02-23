@@ -7,6 +7,10 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  background: linear-gradient(-225deg,
+    rgba(0,101,168,0.6) 0%,
+    rgba(0,36,61,0.6) 50%),
+    image-url("background-image.jpeg");
 }
 
 .banner-text{
@@ -16,6 +20,7 @@
   font-size: 50px;
   font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+
   //margin-bottom: 120px;
   //position: absolute;
   //margin: 100px auto;
