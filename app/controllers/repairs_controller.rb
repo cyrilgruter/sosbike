@@ -1,6 +1,6 @@
 class RepairsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new, :destroy]
-  Before_action: set_repair, only: [:show, :edit, :upadte, :destroy]
+  before_action :set_repair, only: [:show, :edit, :upadte, :destroy]
 
 
   def index
@@ -28,7 +28,7 @@ class RepairsController < ApplicationController
   end
 
 
-Private
+private
 
 def set_repair
   @repair= Repair.find(params[:id])
