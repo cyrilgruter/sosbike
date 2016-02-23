@@ -10,6 +10,13 @@ class RepairsController < ApplicationController
   end
 
   def create
+    @repair = Repair.new(repair_params)
+    @repair.user = current_user
+    if @repair.save
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def new
