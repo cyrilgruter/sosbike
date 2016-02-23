@@ -1,0 +1,21 @@
+ .ctabutton{
+   border: solid 1px #343434;
+   width: 200px;
+   height: 50px;
+   margin: 10px auto;
+   background-color: rgba(52,52,52,.1);
+   color: #FFF;
+   cursor: pointer;
+   letter-spacing: 2px;
+   text-transform: uppercase;
+   font-weight: 300;
+   font-style: normal;
+   text-decoration: none;
+   line-height: 1em;
+   -webkit-animation: text-fade 1.8s;
+ }
+
+ .ctabutton:hover{
+  background-color: #FDF3E7;
+}
+
