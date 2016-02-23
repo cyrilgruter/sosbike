@@ -1,2 +1,26 @@
-<h1>Repairs#index</h1>
-<p>Find me in app/views/repairs/index.html.erb</p>
+
+<% @repairs.each do |repair| %>
+  <%= repair.address %>
+<% end %>
+
+<div class="container">
+  <div class="raw">
+    <div class="col-xs-6">
+        <div id="map" style="width: 100%; height: 600px;">
+
+      <% content_for(:after_js) do %>
+        <%= javascript_tag do %>
+          $(document).on('ready', function() {
+            handler = Gmaps.build('Google');
+            handler.buildMap({ internal: { id: 'map' } }, function(){
+              markers = handler.addMarkers(<%= raw @markers.to_json %>);
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+            });
+          })
+        <% end %>
+        <% end %>
+        </div>
+    </div>
+  </div>
+</div>

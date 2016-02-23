@@ -4,9 +4,22 @@ class RepairsController < ApplicationController
 
 
   def index
+    @repairs = Repair.all
+    @markers = Gmaps4rails.build_markers(@repairs) do |repair, marker|
+      marker.lat repair.latitude
+      marker.lng repair.longitude
+    end
   end
 
   def show
+    @repair = Repair.find(params[:id])
+    @repair_coordinates = { latitude: @repair.latitude, longitude: @repair.longitude }
+    @alert_message = "You are viewing #{@repair.address}"
+    @markers = Gmaps4rails.build_markers(@repair) do |repair, marker|
+      marker.lat repair.latitude
+      marker.lng repair.longitude
+    end
+
   end
 
   def create
