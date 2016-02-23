@@ -10,10 +10,11 @@ class RepairsController < ApplicationController
   end
 
   def create
-    @repair = Repair.new(repair_params)
-    @repair.user = current_user
-    if @repair.save
-      redirect_to root_path
+    @booking = Booking.new(booking_params)
+    @booking.bike = @bike
+    @booking.user = current_user
+    if @booking.save
+      redirect_to dashboard_path
     else
       render :new
     end
