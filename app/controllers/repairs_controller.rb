@@ -4,7 +4,7 @@ class RepairsController < ApplicationController
 
 
   def index
-    @repairs = @Repair.all
+    @repairs = Repair.all
     @markers = Gmaps4rails.build_markers(@repairs) do |repair, marker|
       marker.lat repair.latitude
       marker.lng repair.longitude
