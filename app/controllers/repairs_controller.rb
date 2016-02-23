@@ -7,7 +7,8 @@ class RepairsController < ApplicationController
   end
 
   def show
-    @flat = Repair.find(params[:id])
+    @repair = Repair.find(params[:id])
+    @repair_coordinates = { latitude: @repair.latitude, longitude: @repair.longitude }
     @alert_message = "You are viewing #{@repair.address}"
   end
 

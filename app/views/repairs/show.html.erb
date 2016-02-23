@@ -1,5 +1,10 @@
-<%= javascript_tag do %>
+
+<%= @repair.address %>
+
+<% content_for(:after_js) do %>
+<script >
   $(document).ready(function() {
-    alert('Votre localisation <%= @repair.address%>');
+    console.log (<%= raw @repair_coordinates.to_json %>);
   });
+</script>
 <% end %>
