@@ -13,6 +13,7 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <%= yield %>
+
     <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
     <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyBlES8dioxMo6tcQzLeIXIfnf7zaAYSM0g">
@@ -25,6 +26,7 @@
   <!-- Custom JS code to bind to Autocomplete API -->
   <!-- find it here: https://github.com/lewagon/google-place-autocomplete/blob/gh-pages/autocomplete.js -->
   <!-- We'll detail this file in the article -->
+
 
   </body>
 </html>
