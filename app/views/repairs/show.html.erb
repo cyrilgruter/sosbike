@@ -1,13 +1,12 @@
 
-<%= @repair.address %>
 
-<% content_for(:after_js) do %>
-<script >
-  $(document).ready(function() {
-    console.log (<%= raw @repair_coordinates.to_json %>);
-  });
-</script>
+<% content_for(:title) do %>
+  <%= @repair.address %> is on Bike angels
 <% end %>
+
+<h1><%= @repair.address %></h1>
+
+
 
 <div class="container">
   <div class="raw">
@@ -26,7 +25,10 @@
           })
         <% end %>
         <% end %>
-        </div>
+
+        </div class="center">
+        <%= link_to "Back to all the waiting repairs", repairs_path, class: "btn btn-success" %>
     </div>
   </div>
 </div>
+
