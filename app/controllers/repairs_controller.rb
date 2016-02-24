@@ -45,4 +45,9 @@ class RepairsController < ApplicationController
 
   def destroy
   end
+
+  def product_params
+    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo)
+  end
+
 end

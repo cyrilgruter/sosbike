@@ -5,6 +5,7 @@
         <%= simple_form_for(@repair) do |f| %>
           <%= f.error_notification %>
           <%= f.input :category, collection: [ "Flat tyre (15€)", "Brake Pads (20€)", "Broken chain (20€)"], label: "Select"%>
+          <%= f.input :photo, as: :attachinary %>
           <%= f.button :submit, "Find my saver!", class: "ctabutton" %>
         <% end %>
       </div>
