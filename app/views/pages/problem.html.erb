@@ -1,0 +1,19 @@
+<h1>je suis le probleme</h1>
+<%= form_tag(problem_path, method: :get) do %>
+<div class="form-group">
+  <div class="col-xs-offset-2 col-xs-8">
+    <%= text_field_tag :problem, nil, class: "form-control", placeholder: "Votre problème" %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="col-xs-offset-2 col-xs-8">
+    <%= hidden_field_tag :adress, @adress %>
+  </div>
+</div>
+<div class="form-group">
+  <div class="action-wrapper">
+    <%= submit_tag "Aidez-moi", class: "btn btn-danger cd-btn main-action" %>
+  </div>
+</div>
+
+<% end %>
