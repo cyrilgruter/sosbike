@@ -7,17 +7,17 @@
         <p>Roue crevée? chaine cassée? Nous vous dépannons en 30 minutes!</p>
       </div>
       <%= form_tag(problem_path, method: :get) do %>
-      <div class="form-group">
-        <div class="col-xs-offset-2 col-xs-8">
-          <%= text_field_tag :adress, nil, class: "form-control", placeholder: "Adresse" %>
+        <div class="form-group">
+          <div class="col-xs-offset-2 col-xs-8">
+            <%= text_field_tag :adress, nil, class: "form-control", placeholder: "Adresse", id: "user_input_autocomplete_address" %>
+             <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="action-wrapper">
-          <%= submit_tag "Aidez-moi", class: "btn btn-danger cd-btn main-action" %>
+        <div class="form-group">
+          <div class="action-wrapper">
+            <%= submit_tag "Aidez-moi", class: "btn btn-danger cd-btn main-action" %>
+          </div>
         </div>
-      </div>
-
       <% end %>
       </div>
     </div>

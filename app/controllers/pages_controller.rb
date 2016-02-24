@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   end
 
   def problem
-    #@adress = params[:adress]
     raise
+    #@adress = params[:adress]
   end
 end
