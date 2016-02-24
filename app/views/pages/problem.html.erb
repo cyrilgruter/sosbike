@@ -3,10 +3,10 @@
   <div class="raw">
     <div class="col-xs-6">
 
-      <h1>Racontez-nous, quel est votre problème?</h1>
+      <h1>Quel est votre problème?</h1>
       <p> Nous intervenons en urgence pour réparer les pneus crevés, les chaînes cassées, les freins usées </p>
 
-          <%= form_tag(problem_path, method: :get) do %>
+          <%= form_tag(solution_path, method: :get) do %>
             <div class="form-group">
               <div class="col-xs-offset-2 col-xs-8">
               <%= select_tag(:category, options_for_select(CATEGORIES)) %>
@@ -14,7 +14,7 @@
               </div>
               <div class="form-group">
               <div class="col-xs-offset-2 col-xs-8">
-              <%= hidden_field_tag :adress, @adress %>
+              <%= hidden_field_tag :address, @address %>
               </div>
             </div>
           </div>
