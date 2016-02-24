@@ -3,4 +3,5 @@ class Repair < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
   belongs_to :client, class_name: 'User'
   belongs_to :saver, class_name: 'User'
+  validates :category, inclusion: {in: CATEGORIES}, presence: true
 end

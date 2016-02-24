@@ -1,19 +1,28 @@
-<h1>je suis le probleme</h1>
-<%= form_tag(problem_path, method: :get) do %>
-<div class="form-group">
-  <div class="col-xs-offset-2 col-xs-8">
-    <%= text_field_tag :problem, nil, class: "form-control", placeholder: "Votre problème" %>
-  </div>
-</div>
-<div class="form-group">
-  <div class="col-xs-offset-2 col-xs-8">
-    <%= hidden_field_tag :adress, @adress %>
-  </div>
-</div>
-<div class="form-group">
-  <div class="action-wrapper">
-    <%= submit_tag "Aidez-moi", class: "btn btn-danger cd-btn main-action" %>
+
+<div class="container">
+  <div class="raw">
+    <div class="col-xs-6">
+
+      <h1>Racontez-nous, quel est votre problème?</h1>
+      <p> Nous intervenons en urgence pour réparer les pneus crevés, les chaînes cassées, les freins usées </p>
+
+          <%= form_tag(problem_path, method: :get) do %>
+            <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-8">
+              <%= select_tag(:category, options_for_select(CATEGORIES)) %>
+              <%= submit_tag "Go!", class: "btn btn-danger cd-btn main-action" %>
+              </div>
+              <div class="form-group">
+              <div class="col-xs-offset-2 col-xs-8">
+              <%= hidden_field_tag :adress, @adress %>
+              </div>
+            </div>
+          </div>
+
+      <% end %>
+
+    </div>
   </div>
 </div>
 
-<% end %>
+
