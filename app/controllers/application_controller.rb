@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
 
+
   before_action :store_location
 
   def store_location
@@ -20,13 +21,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
   def after_sign_in_path_for(resource)
-    session[:previous_url] || root_path
+
+    @user = current_user
+    if @user.saver
+      account_path
+    else
+      session[:previous_url] || root_path
+    end
   end
 
-  end
-
-
-
-
+  #may have to precise that for the user != saver the redirection/
+  # is not home page wich is the default page
+end
 

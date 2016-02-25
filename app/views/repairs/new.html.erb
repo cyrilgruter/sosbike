@@ -6,10 +6,11 @@
       <p> Nous intervenons en urgence pour réparer les pneus crevés, les chaînes cassées, les freins usées </p>
       <P>Laissez-nous vos coordonées, nous vous rappelons immédiatement </P>
         <%= simple_form_for(@repair) do |f| %>
+
         <div class="form-for">
         <%= f.error_notification %>
         <%= f.input :address, input_html: {value: @address} %>
-        <%=f.input :category, as: :select, label: false, collection: CATEGORIES, :include_blank => false %>
+        <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
         <%= f.button :submit, "Go!", class: "btn btn_alert" %>
             <% if @current_user %>
               <%= f.submit "Etre rappelé immédiatement", class: "btn btn-danger cd-btn main-action" %>
