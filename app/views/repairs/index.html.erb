@@ -1,30 +1,53 @@
 
-<% @repairs.each do |repair| %>
-  <%= repair.address %>
-<% end %>
-
 <div class="container">
-  <div class="raw">
-    <div class="col-xs-6">
-        <div id="map" style="width: 100%; height: 600px;">
-
-      <% content_for(:after_js) do %>
-        <%= javascript_tag do %>
-          $(document).on('ready', function() {
-            handler = Gmaps.build('Google');
-            handler.buildMap({ internal: { id: 'map' } }, function(){
-              markers = handler.addMarkers(<%= raw @markers.to_json %>);
-              handler.bounds.extendWith(markers);
-              handler.fitMapToBounds();
-            });
-          })
-        <% end %>
-        <% end %>
+  <div class="row">
+    <div class="col-xs-12 ">
+        <div id="map" style="width: 100%; height:300px; margin-left: auto;
+  margin-right: auto;">
         </div>
     </div>
   </div>
 </div>
 
+<div class="wrapper-grey padded">
+  <div class="container">
+    <h2 class="text-center">All Repairs</h2>
+    <div class="row">
+      <% @repairs.each do |repair| %>
+
+        <% if repair.category == "Pneu crevé" %>
+        <% photo_repair = image_path('pneu.png')  %>
+        <% elsif repair.category == "Freins" %>
+        <% photo_repair = image_path('frein.png')  %>
+        <% elsif repair.category == "Chaine" %>
+        <% photo_repair = image_path('chaine.png')  %>
+        <% else  photo_repair == image_path('chaine.png') %>
+        <% end %>
+
+      <div class="col-xs-12 col-sm-4">
+        <div class="card2" style="background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0)), url(<%=  photo_repair %>);">
+          <div class="card-category"><%= repair.address %></div>
+            <div class="card-description">
+              <h2><%= repair.category %></h2>
+            </div>
+            <a class="card-link" href="#" ></a>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 
-
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).on('ready', function() {
+      handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function(){
+        markers = handler.addMarkers(<%= raw @markers.to_json %>);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+      });
+    })
+  <% end %>
+  <% end %>
