@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'account' => 'users#show'
+  get 'account' => 'users#showsaver'
 
   resources :repairs
   devise_for :users

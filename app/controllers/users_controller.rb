@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def index
   end
 
-  def show
+  def showsaver
     @user = current_user
     if @user.saver
       @test = "réussi"
