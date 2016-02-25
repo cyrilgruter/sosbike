@@ -4,7 +4,7 @@
       <div style="color: #FDF3E7", class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
         <%= simple_form_for(@repair) do |f| %>
           <%= f.error_notification %>
-          <%= f.input :category, collection: [ "Flat tyre (15€)", "Brake Pads (20€)", "Broken chain (20€)"], label: "Select"%>
+          <%= f.input :category, collection:  Repair::CATEGORIES, label: "Select"%>
           <%= f.input :photo, as: :attachinary %>
           <%= f.button :submit, "Find my saver!", class: "ctabutton" %>
         <% end %>
