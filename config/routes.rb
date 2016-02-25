@@ -2,9 +2,10 @@ Rails.application.routes.draw do
   get 'account' => 'users#showsaver'
 
   resources :repairs
-  devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get "problem" => "pages#problem"
+  get "solution" => "pages#solution"
 
 
   mount Attachinary::Engine => "/attachinary"

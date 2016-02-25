@@ -1,10 +1,13 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:home, :problem]
+
   def home
   end
 
   def problem
-    #@adress = params[:adress]
+    @address= params[:address]
     @postal_code = params[:postal_code]
+
     if @postal_code == ""
       flash[:alert] = "Veuillez entrer un code postal"
       render :home

@@ -1,15 +1,25 @@
-<div class="form-border container text-center">
-  <h2 style="color: #FDF3E7"; >Your issue?</h2>
-    <div class="row">
-      <div style="color: #FDF3E7", class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-        <%= simple_form_for(@repair) do |f| %>
-          <%= f.error_notification %>
-          <%= f.input :category, collection:  Repair::CATEGORIES, label: "Select"%>
-          <%= f.input :photo, as: :attachinary %>
-          <%= f.button :submit, "Find my saver!", class: "ctabutton" %>
-        <% end %>
-      </div>
-  </div>
-</div>
 
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>Quel est votre problème?</h1>
+      <p> Nous intervenons en urgence pour réparer les pneus crevés, les chaînes cassées, les freins usées </p>
+      <P>Laissez-nous vos coordonées, nous vous rappelons immédiatement </P>
+        <%= simple_form_for(@repair) do |f| %>
+
+        <div class="form-for">
+        <%= f.error_notification %>
+        <%= f.input :address, input_html: {value: @address} %>
+        <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
+        <%= f.button :submit, "Go!", class: "btn btn_alert" %>
+            <% if @current_user %>
+              <%= f.submit "Etre rappelé immédiatement", class: "btn btn-danger cd-btn main-action" %>
+            <%else %>
+              <%= link_to 'sign up pour être rappelé immédiatement',  new_user_registration_path, class: "btn btn-danger cd-btn main-action"%>
+            <%end%>
+        </div>
+      <% end %>
+      </div>
+    </div>
+  </div>
 

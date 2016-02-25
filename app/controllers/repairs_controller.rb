@@ -13,6 +13,7 @@ class RepairsController < ApplicationController
 
   def show
     @repair = Repair.find(params[:id])
+
     @repair_coordinates = { latitude: @repair.latitude, longitude: @repair.longitude }
     @alert_message = "You are viewing #{@repair.address}"
     @markers = Gmaps4rails.build_markers(@repair) do |repair, marker|
@@ -23,11 +24,12 @@ class RepairsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(booking_params)
-    @booking.bike = @bike
-    @booking.user = current_user
-    if @booking.save
-      redirect_to dashboard_path
+    @repair = Repair.new(repair_params)
+    @repair.client_id = current_user.id
+    # current_user.phone = params[:phone]
+    # current_user.save
+    if @repair.save
+      redirect_to repair_path(@repair)
     else
       render :new
     end
@@ -35,6 +37,10 @@ class RepairsController < ApplicationController
 
   def new
     @repair = Repair.new
+    @current_user = current_user
+    @address= params[:address]
+    @category= params[:category]
+    @client_id= @current_user_id
   end
 
   def edit
