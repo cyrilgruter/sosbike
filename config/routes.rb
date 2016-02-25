@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'account' => 'users#show'
+
   resources :repairs
   devise_for :users
   root to: 'pages#home'
