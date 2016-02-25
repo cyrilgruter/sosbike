@@ -1,14 +1,16 @@
 
 
-<% content_for(:title) do %>
-  <%= @repair.address %> is on Bike angels
+<% content_for(:title) do %> Your are
+  <%= @repair.address %>
 <% end %>
 
 
 <div class="container">
   <div class="raw">
     <div class="col-xs-6">
-        <h1><%= @repair.address %></h1>
+        <h3> You are <%= @repair.address %></h3>
+        <h3> You have a problem of <%= @repair.category %> </h3>
+        <h3> Your are <%= @repair.client.email %>
           <div id="map" style="width: 100%; height: 600px;">
 
         <% content_for(:after_js) do %>

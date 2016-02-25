@@ -13,7 +13,6 @@ class RepairsController < ApplicationController
 
   def show
     @repair = Repair.find(params[:id])
-
     @repair_coordinates = { latitude: @repair.latitude, longitude: @repair.longitude }
     @alert_message = "You are viewing #{@repair.address}"
     @markers = Gmaps4rails.build_markers(@repair) do |repair, marker|
@@ -41,6 +40,7 @@ class RepairsController < ApplicationController
     @address= params[:address]
     @category= params[:category]
     @client_id= @current_user_id
+
   end
 
   def edit
