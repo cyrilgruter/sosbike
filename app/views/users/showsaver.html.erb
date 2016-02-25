@@ -12,7 +12,16 @@
 
     <!-- Tab panes -->
     <div class="tab-content">
-      <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel assumenda, ipsum ipsa quasi commodi eum totam. Aliquam in consequatur earum tenetur, dolores blanditiis, nisi commodi, alias architecto reprehenderit temporibus odit.</div>
+      <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
+        <%@repairs_saver_nil.each do |repair|%>
+          <ul>
+            <li>
+              <strong><%=repair.category%></strong>
+              <%=repair.address%>
+            </li>
+          </ul>
+        <%end%>
+      </div>
       <div role="tabpanel" class="tab-pane tab-content-padding" id="profile">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae voluptatum, at nam cumque unde eligendi, quam ab ipsa necessitatibus suscipit? Saepe provident eius maiores ipsam fugiat laborum blanditiis nesciunt sint!</div>
       <div role="tabpanel" class="tab-pane tab-content-padding" id="messages">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi accusantium blanditiis, rerum maiores porro laboriosam, ex iusto consequuntur. Deleniti dolorum dolore quas autem odio quia assumenda amet error laudantium perspiciatis!</div>
     </div>
