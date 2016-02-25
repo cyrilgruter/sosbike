@@ -44,9 +44,12 @@ class RepairsController < ApplicationController
   end
 
   def edit
+    @repair = Repair.find(params[:id])
   end
 
   def update
+    @repair = Repair.find(params[:id])
+    @repair.update(repair_params)
   end
 
   def destroy

@@ -1,7 +1,6 @@
 <div class="container">
 
   <h1 class="text-center">Dashboard</h1>
-
   <div>
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -18,6 +17,10 @@
             <li>
               <strong><%=repair.category%></strong>
               <%=repair.address%>
+              <%= simple_form_for repair do |f| %>
+                <%= f.input :saver_id,:as => :hidden, :input_html => { :value => current_user.id } %>
+                <%= f.button :submit, "I handle it!", class: "btn btn-primary" %>
+              <% end %>
             </li>
           </ul>
         <%end%>

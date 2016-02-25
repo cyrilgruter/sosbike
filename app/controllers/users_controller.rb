@@ -9,4 +9,5 @@ class UsersController < ApplicationController
       @test = "réussi"
     end
   end
+  #@user_id =
 end
