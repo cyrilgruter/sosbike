@@ -1,6 +1,4 @@
-.tab-width{
-  width: 334px;
-}
+
 
 .tab-content-padding{
   padding-top: 40px;
@@ -14,23 +12,33 @@
 }
 
 .dashboard-container{
-  width: 70%;
+  width: 80%;
   margin: 0 auto;
+  min-height: 600px;
 }
 
+.nav-tabs {
+  &.active {
+    background-color: white;
+  }
+}
 
 .nav-tabs > li.active > a{
   background-color: white;
   border-radius: 10px 10px 0px 0px;
-  &:hover{
-  background-color: white;
-}
+  // &:hover{
+  // background-color: white;
+  // }
 }
 .nav-tabs > li > a{
 
   &:hover{
   background-color: white;
+  }
 }
+
+.nav-tabs li {
+  width: 33%;
 }
 
 
