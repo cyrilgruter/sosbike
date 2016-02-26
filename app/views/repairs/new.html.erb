@@ -6,27 +6,31 @@
 
 
 <div class="container">
+
   <div class="row">
     <div class="col-xs-12">
-      <h1>Tell us about your situation</h1>
-      <p> We act urgently to repair flat tires, broken chains, worn brakes </p>
-      <P>Leave us your details, we remind you immediately </P>
+      <div class="new-repair-container">
+        <h1>Tell us about your situation</h1>
+        <p> We act urgently to repair <strong>flat tires, broken chains, worn brakes </strong> </p>
+        <P>Leave us your details, we remind you immediately </P>
         <%= simple_form_for(@repair) do |f| %>
 
-        <div class="form-for">
-        <%= f.error_notification %>
-        <h3> <i class="fa fa-bicycle"></i> You are here: <i class="fa fa-bicycle"></i> <h3>
-        <%= f.input :address, label: false, input_html: {value: @address} %>
-        <H3> Choose on the list </h3>
-        <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
+          <div class="form-for">
+            <%= f.error_notification %>
+            <h3> <i class="fa fa-bicycle"></i> You are here: <i class="fa fa-bicycle"></i> <h3>
+            <%= f.input :address, label: false, input_html: {value: @address} %>
+            <h3> Pick your issue on the list </h3>
+            <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
             <% if @current_user %>
-              <%= f.submit "Etre rappelé immédiatement", class: "btn btn-danger cd-btn main-action" %>
-            <%else %>
-              <%= link_to 'Sign up',  new_user_registration_path, class: "btn btn-danger cd-btn main-action"%>
-            <%end%>
-        </div>
-      <% end %>
+              <%= f.submit "Be call back now!", class: "btn btn-danger cd-btn main-action" %>
+            <% else %>
+              <%= link_to 'Sign up to be call back now!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
+            <% end%>
+          </div>
+        <% end %>
+
       </div>
     </div>
   </div>
+</div>
 
