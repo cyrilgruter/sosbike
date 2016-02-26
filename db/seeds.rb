@@ -17,7 +17,6 @@ matthias = User.create!(email: "matthias@reparator.fr", password: "00000000", sa
 cyril = User.create!(email: "cyril@reparator.fr", password: "00000000", saver: true)
 laure = User.create!(email: "laure@reparator.fr", password: "00000000", saver: true)
 
-repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "Freins", client: billy)
-oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "Freins", client: billy)
-wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "Chaine", client: billy, saver: matthias)
-
+repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tire", client: billy)
+oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "worn brakes", client: billy)
+wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "broken chain", client: billy, saver: matthias)
