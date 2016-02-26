@@ -1,1 +1,31 @@
+#footer {
+  background: #FCFFF5;
+  height: 30px;
+  padding: 5px 0;
+  color: #CCCCCC;
+  bottom: 25px;
+  position: fixed;
+  right: 0;
+  left: 0;
+}
+// #footer p {
+//   margin-top: 2px;
+// }
+// #footer ul {
+//   margin-top: 2px;
+// }
+#footer a {
+  color: #CCCCCC;
+  font-size: 20px;
+  letter-spacing: 20px;
+  transition: color 0.5s ease;
+}
+#footer a:hover{
+  color: #FCFFF5;
+}
 // Your footer style
+// .pages{
+//   &-home{
+//     display:none;
+//   }
+// }// Your footer style
