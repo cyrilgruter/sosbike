@@ -9,6 +9,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
 gem 'geocoder'
+gem 'sinatra'
+gem 'twilio-ruby'
 
 gem 'sass-rails'
 gem 'jquery-rails'
