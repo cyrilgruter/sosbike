@@ -48,7 +48,6 @@ class RepairsController < ApplicationController
 
   def update
     @repair.update(repair_params)
-    @saver =
   end
 
   def destroy
