@@ -47,11 +47,13 @@ class RepairsController < ApplicationController
   end
 
   def update
-
     @repair.update(repair_params)
   end
 
   def destroy
+    @repair.destroy
+    redirect_to destroy_user_session_path, method: :delete
+
   end
 
 private

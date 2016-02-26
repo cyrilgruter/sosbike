@@ -15,11 +15,11 @@
     <div class="row">
       <% @repairs.each do |repair| %>
 
-        <% if repair.category == "Pneu crevé" %>
+        <% if repair.category == "flat tire" %>
         <% photo_repair = image_path('pneu.png')  %>
-        <% elsif repair.category == "Freins" %>
+        <% elsif repair.category == "worn brakes" %>
         <% photo_repair = image_path('frein.png')  %>
-        <% elsif repair.category == "Chaine" %>
+        <% elsif repair.category == "broken chain" %>
         <% photo_repair = image_path('chaine.png')  %>
         <% else  photo_repair == image_path('chaine.png') %>
         <% end %>
