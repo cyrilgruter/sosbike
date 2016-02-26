@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_action :authenticate_user!
   protect_from_forgery with: :exception
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
 
   before_action :store_location
@@ -32,7 +33,18 @@ class ApplicationController < ActionController::Base
     end
   end
 
+
+
+  protected
+
+def configure_permitted_parameters
+  devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:last_name, :email, :password, :password_confirmation, :phone) }
+  devise_parameter_sanitizer.for(:sign_in) { |u| u.permit(:login, :last_name, :email, :password, :phone) }
+  devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:last_name, :email, :password, :password_confirmation, :current_password, :phone) }
+end
+
+
   #may have to precise that for the user != saver the redirection/
   # is not home page wich is the default page
-end
+  end
 

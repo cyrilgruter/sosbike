@@ -1,14 +1,21 @@
 
 
-<% content_for(:title) do %>
-  <%= @repair.address %> is on Bike angels
+<% content_for(:title) do %> Your are
+  <%= @repair.address %>
 <% end %>
 
 
 <div class="container">
   <div class="raw">
     <div class="col-xs-6">
-        <h1><%= @repair.address %></h1>
+    <h3> Hello <%= @repair.client.first_name %>! Thanks for joining us! </h3>
+    <br></br>
+    <p>You have a <strong><%= @repair.category %> </strong>? How grating!</p>
+    <p> Don't worry! One of our <strong>saver </strong> is ready to help you! He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
+    <p> You are here : <strong><%= @repair.address %> </strong></p>
+    <br></br>
+    <%= link_to "Cancel your demand", repairs_path, class: "btn btn-success" %>
+    <br></br>
           <div id="map" style="width: 100%; height: 600px;">
 
         <% content_for(:after_js) do %>
@@ -23,28 +30,12 @@
             })
           <% end %>
           <% end %>
-
+          <br></br>
           </div class="center">
-          <%= link_to "Back to all the waiting repairs", repairs_path, class: "btn btn-success" %>
       </div>
   </div>
 </div>
 
-
-<div class="container">
- <div class="row">
-    <div class="col-xs-12">
-      <h3>Your Booking has been succesfully transmitted, you will receive a confirmation email </h3>
-    </div>
-    <div class="col-xs-12">
-      <p style="height:100px" class="text-center"><%= image_tag "keys.jpg" %> </p>
-    </div>
-    <div class="col-xs-12">
-      <button class="btn btn-default"><%= link_to "go back to the Spot Description", repair_path(@repair) %></button>
-      <button class="btn btn-default"><%= link_to "go back to the Spots lists", repair_path(@repair) %></button>
-    </div>
-  </div>
-</div>
 
 
 
