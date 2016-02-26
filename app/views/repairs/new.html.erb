@@ -6,9 +6,10 @@
 
 
 <div class="container">
-  <div class="new-repair-container">
-    <div class="row">
-      <div class="col-xs-12">
+
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="new-repair-container">
         <h1>Tell us about your situation</h1>
         <p> We act urgently to repair <strong>flat tires, broken chains, worn brakes </strong> </p>
         <P>Leave us your details, we remind you immediately </P>
@@ -23,10 +24,11 @@
             <% if @current_user %>
               <%= f.submit "Be call back now!", class: "btn btn-danger cd-btn main-action" %>
             <% else %>
-              <%= link_to 'Sign up',  new_user_registration_path, class: "btn btn-danger cd-btn main-action"%>
+              <%= link_to 'Sign up to be call back now!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>
           </div>
         <% end %>
+
       </div>
     </div>
   </div>

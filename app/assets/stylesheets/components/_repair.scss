@@ -1,3 +1,17 @@
-.new-repair-container {
+  .new-repair-container {
   background-color: white;
+  padding: 30px;
+  border-radius: 6px;
+  width: 55%;
+  margin: auto;
+  margin-top: 130px;
+  h1 {
+    margin-top: 0;
+    font-size: 28px;
+    font-weight: 300;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 300;
+  }
 }
