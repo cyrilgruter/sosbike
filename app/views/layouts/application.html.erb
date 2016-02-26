@@ -14,11 +14,11 @@
     <%= render 'shared/flashes' %>
     <%= yield %>
 
-    <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
-
     <script type="text/javascript"
     src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyC9q7GsaPkhztHE2bTpug8FjTxl_IH97tE">
     </script>
+    <%= javascript_include_tag "https://google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js" %>
+
   <%= javascript_include_tag 'application' %>
    <%= yield (:after_js); %>
 
