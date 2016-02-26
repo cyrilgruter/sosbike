@@ -16,11 +16,11 @@
       <% @repairs.each do |repair| %>
 
         <% if repair.category == "flat tire" %>
-        <% photo_repair = image_path('pneu.png')  %>
+        <% photo_repair = image_path('pneu.jpg')  %>
         <% elsif repair.category == "worn brakes" %>
-        <% photo_repair = image_path('frein.png')  %>
+        <% photo_repair = image_path('frein.jpg')  %>
         <% elsif repair.category == "broken chain" %>
-        <% photo_repair = image_path('chaine.png')  %>
+        <% photo_repair = image_path('chaine.jpg')  %>
         <% else  photo_repair == image_path('chaine.png') %>
         <% end %>
 
