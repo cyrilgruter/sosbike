@@ -18,7 +18,6 @@ class RepairsController < ApplicationController
       marker.lat repair.latitude
       marker.lng repair.longitude
     end
-
   end
 
   def create
@@ -48,6 +47,7 @@ class RepairsController < ApplicationController
 
   def update
     @repair.update(repair_params)
+    # @saver =
   end
 
   def destroy
