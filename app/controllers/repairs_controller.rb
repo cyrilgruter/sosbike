@@ -18,7 +18,6 @@ class RepairsController < ApplicationController
       marker.lat repair.latitude
       marker.lng repair.longitude
     end
-
   end
 
   def create
@@ -46,13 +45,15 @@ class RepairsController < ApplicationController
   end
 
   def update
-
     @repair.update(repair_params)
     #@saver =
     redirect_to account_path
   end
 
   def destroy
+    @repair.destroy
+    redirect_to destroy_user_session_path, method: :delete
+
   end
 
 private
