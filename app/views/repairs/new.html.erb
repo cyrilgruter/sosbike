@@ -22,7 +22,7 @@
             <h3> Pick your issue on the list </h3>
             <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
             <% if @current_user %>
-              <%= f.submit "Be call back now!", class: "btn btn-danger cd-btn main-action" %>
+              <%= f.submit "Be call back now!", class: "btn btn-brand" %>
             <% else %>
               <%= link_to 'Sign up to be call back now!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>

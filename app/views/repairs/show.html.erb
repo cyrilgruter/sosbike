@@ -7,7 +7,8 @@
 
 <div class="container">
   <div class="raw">
-    <div class="col-xs-6">
+    <div class="col-xs-12">
+      <div class="show-repair-container">
       <div class= "card_white">
         <h1> Hello <%= @repair.client.first_name %>! Thanks for calling us! </h1>
         <br></br>
@@ -17,6 +18,7 @@
         <br></br>
         <%= link_to "Cancel your demand", repairs_path, class: "btn btn-brand" %>
       </div>
+     </div>
         <br></br>
           <div id="map" style="width: 100%; height: 600px;">
 
