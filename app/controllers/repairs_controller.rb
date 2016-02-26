@@ -38,7 +38,6 @@ class RepairsController < ApplicationController
     @address= params[:address]
     @category= params[:category]
     @client_id= @current_user_id
-
   end
 
   def edit
@@ -47,7 +46,8 @@ class RepairsController < ApplicationController
 
   def update
     @repair.update(repair_params)
-    # @saver =
+    #@saver =
+    redirect_to account_path
   end
 
   def destroy
