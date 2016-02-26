@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 ruby '2.3.0'
 
 gem 'rails', '4.2.5.1'
-gem 'puma'
+gem 'puma', group: :production
 gem 'pg'
 gem 'figaro'
 gem 'jbuilder', '~> 2.0'
@@ -24,6 +24,7 @@ gem "attachinary"
 gem "jquery-fileupload-rails"
 gem "coffee-rails"
 
+
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
 end
@@ -39,5 +40,5 @@ group :development, :test do
 end
 
 group :production do
-  gem 'rails_12factor'
+  gem 'rails_12factor', group: :production
 end
