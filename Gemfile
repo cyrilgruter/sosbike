@@ -8,6 +8,8 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
+
+# geocoding
 gem 'geocoder'
 gem 'sinatra'
 gem 'twilio-ruby'
@@ -21,10 +23,13 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "coffee-rails"
 gem "gmaps4rails"
+
+# gem pour les photos
 gem 'cloudinary'
+gem 'carrierwave'
 gem "attachinary"
 gem "jquery-fileupload-rails"
-gem "coffee-rails"
+
 
 
 source 'https://rails-assets.org' do

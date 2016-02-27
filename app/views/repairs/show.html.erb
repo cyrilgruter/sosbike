@@ -16,11 +16,16 @@
         <p> Don't worry! One of our <strong>saver </strong> is ready to help you! He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
         <p> You are here : <strong><%= @repair.address %> </strong></p>
         <br></br>
-        <%= link_to "Cancel your demand", repairs_path, class: "btn btn-brand" %>
+        <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %>
       </div>
      </div>
         <br></br>
-          <div id="map" style="width: 100%; height: 600px;">
+        <div>
+        <% if @repair.photo? %>
+        <%= cl_image_tag @repair.photo.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
+        </div>
+          <div id="map" style="width: 100%; height: 300px;">
 
         <% content_for(:after_js) do %>
           <%= javascript_tag do %>

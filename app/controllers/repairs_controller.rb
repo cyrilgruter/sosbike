@@ -37,6 +37,8 @@ class RepairsController < ApplicationController
     @current_user = current_user
     @address= params[:address]
     @category= params[:category]
+    @photo = params[:photo]
+    @photo_cache = params[:photo_cache]
     @client_id= @current_user_id
   end
 
@@ -51,8 +53,8 @@ class RepairsController < ApplicationController
   end
 
   def destroy
-    @repair.destroy
-    redirect_to destroy_user_session_path, method: :delete
+    @repair.delete
+    # redirect_to destroy_user_session_path, method: :delete
 
   end
 
@@ -63,7 +65,7 @@ private
   end
 
   def repair_params
-    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo)
+    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache)
   end
 
 end

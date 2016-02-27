@@ -3,7 +3,8 @@
   <%= @repair.address %>
 <% end %>
 
-
+<%= cl_image_tag("pf5yfxcalygw3ykqv7xg",
+      width: 1400, height: 300, crop: :fill) %>
 
 <div class="container">
 
@@ -21,6 +22,9 @@
             <%= f.input :address, label: false, input_html: {value: @address} %>
             <h3> Pick your issue on the list </h3>
             <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
+            <%= f.input :photo, as: :attachinary %>
+            <%= f.input :photo_cache, as: :hidden %>
+
             <% if @current_user %>
               <%= f.submit "Be call back now!", class: "btn btn-brand" %>
             <% else %>
