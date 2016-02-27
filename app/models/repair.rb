@@ -5,6 +5,7 @@ class Repair < ActiveRecord::Base
   belongs_to :client, class_name: 'User'
   belongs_to :saver, class_name: 'User'
   has_attachment :photo
+  validates :address, presence: true
   validates :client_id, presence: true
   validates :category, inclusion: {in: CATEGORIES}, presence: true
 end

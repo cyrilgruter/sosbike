@@ -1,3 +1,4 @@
+
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -5,5 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :problems, class_name: 'Repair', foreign_key: 'client_id'
   has_many :missions, class_name: 'Repair', foreign_key: 'saver_id'
+  validates :phone, presence: true
+  validates :first_name, presence: true
   has_attachment :photo
 end
