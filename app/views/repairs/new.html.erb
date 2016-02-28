@@ -1,9 +1,12 @@
 
+<!-- displaying the title of the page on the navigation bar -->
 <% content_for(:title) do %> Your are
   <%= @repair.address %>
 <% end %>
 
-<%= cl_image_tag("pf5yfxcalygw3ykqv7xg",
+<!-- displaying the image of the home page via Cloudinary -->
+
+<%= cl_image_tag("mbocrf86d5hsfcbdjwh0",
       width: 1400, height: 300, crop: :fill) %>
 
 <div class="container">
@@ -14,15 +17,18 @@
         <h1>Tell us about your situation</h1>
         <p> We act urgently to repair <strong>flat tires, broken chains, worn brakes </strong> </p>
         <P>Leave us your details, we remind you immediately </P>
+    <!-- displaying the new form -->
         <%= simple_form_for(@repair) do |f| %>
 
           <div class="form-for">
             <%= f.error_notification %>
             <h3> <i class="fa fa-bicycle"></i> You are here: <i class="fa fa-bicycle"></i> <h3>
+    <!-- Get the address from home page -->
             <%= f.input :address, label: false, input_html: {value: @address} %>
+    <!-- displaying the category of repair-->
             <h3> Pick your issue on the list </h3>
             <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
-
+  <!-- displaying the prices of repairs -->
           <div class="row text-center icons-row">
             <div class="col-xs-6 col-sm-3 col-md-2"><P>tire</P>
             <%= image_tag "tire.png", height: '40' %>
@@ -38,12 +44,13 @@
           </div>
           </div>
         </div>
+<!-- Adding a description and a photo if the choice is not on the list -->
         <h3>Your problem is not on the lits? </h3><p>Send us a photo with your phone or leave us a description. We will see if we can handle it! </p>
 
             <%= f.input :photo, as: :attachinary %>
 <!-- add a description to repair-->
 
-
+<!-- Different view if the client is signed up or not -->
             <% if @current_user %>
               <%= f.submit "Be call back now!", class: "btn btn-brand" %>
             <% else %>

@@ -1,20 +1,12 @@
 
-
-<% content_for(:title) do %> Hello
-  <%= @repair.client.first_name %>
+<!-- displaying the title of the page on the navigation bar -->
+<% content_for(:title) do %> Your are
+  <%= @repair.address %>
 <% end %>
 
-
-
-<!-- le code des filles -->
-
-<div class="banner">
-  <span class="banner-bg" style="background-image: url("background-image.jpeg"); backgroun-position: center center;"></span>
-  <span class="banner-gradient"></span>
-
-</div>
-
-
+<!-- displaying the image of the home page via Cloudinary -->
+<%= cl_image_tag("mbocrf86d5hsfcbdjwh0",
+      width: 1400, height: 300, crop: :fill) %>
 
 <br></br>
 <br></br>
@@ -30,14 +22,13 @@
           </div>
 
           <div class="col-sm-10">
-              <!-- displaying the title -->
+<!-- displaying the name of the client -->
              <h1> <strong>Hello <%= @repair.client.first_name %>! </strong></h1>
              <p> Thanks for calling us </p>
-              <!-- displaying the address -->
             <br></br>
           </div>
 
-
+<!-- displaying the category of the client's problem -->
       <div class="row">
         <% if @repair.category == "flat tire" %>
        <%= image_tag "tire.png", height: '40' %>
@@ -47,10 +38,11 @@
        <%= image_tag "chain2.png", height: '40' %>
         <% end %>
         <p>You have a <strong><%= @repair.category %> </strong>?</p>
-
+<!-- displaying the phone of the client -->
           <p> Don't worry! One of our <strong>saver</strong> is ready to help you!</p>
           <p> He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
           <p> The price of our intervention is:
+<!-- displaying the prices of the repairs -->
         <% if @repair.category == "flat tire" %>
        <P> <strong>15 euros</strong> </P>
         <% elsif @repair.category == "worn brakes" %>
@@ -62,14 +54,13 @@
         <div class ="list inline">
           <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <%= link_to "Modify your informations", repair_path, method: :patch, class: "btn btn-brand" %>
       </div>
-      </div>        <br></br>
-            <br></br>
-
-          <!-- displaying all the features of the spot -->
+      </div>
+      <br></br>
+      <br></br>
 
       </div>
     </div>
-
+<!-- displaying the address of the repair and the map -->
     <div class="col-sm-4">
         <div class="row" style="text-align: justify;">
         <h3>This is our meeting point</h3>
