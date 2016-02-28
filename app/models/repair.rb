@@ -1,4 +1,5 @@
 class Repair < ActiveRecord::Base
+  # mount_uploader :photo, PhotoUploader
   CATEGORIES = ["flat tire", "worn brakes", "broken chain"]
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
