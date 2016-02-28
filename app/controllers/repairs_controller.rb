@@ -49,7 +49,7 @@ class RepairsController < ApplicationController
   def update
     @repair.update(repair_params)
     #@saver =
-    redirect_to account_path
+    redirect_to repair_path
   end
 
   def destroy

@@ -22,7 +22,26 @@
             <%= f.input :address, label: false, input_html: {value: @address} %>
             <h3> Pick your issue on the list </h3>
             <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
+
+          <div class="row text-center icons-row">
+            <div class="col-xs-6 col-sm-3 col-md-2"><P>tire</P>
+            <%= image_tag "tire.png", height: '40' %>
+            <p> 15 € </p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2"><p>brake</p>
+            <%= image_tag "brake2.png", height: '40' %>
+            <p> 20 € </p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2"><p>chain</p>
+            <%= image_tag "chain2.png", height: '40' %>
+            <p> 20 €</p>
+          </div>
+          </div>
+        </div>
+        <h3>Your problem is not on the lits? </h3><p>Send us a photo with your phone or leave us a description. We will see if we can handle it! </p>
+
             <%= f.input :photo, as: :attachinary %>
+<!-- add a description to repair-->
 
 
             <% if @current_user %>
@@ -30,6 +49,7 @@
             <% else %>
               <%= link_to 'Sign up to be call back now!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>
+
           </div>
         <% end %>
 
@@ -38,22 +58,3 @@
   </div>
 </div>
 
-<div class="row text-center icons-row">
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <%= image_tag "tire.png", height: '40' %>
-          <p> 15 € </p>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <%= image_tag "brake2.png", height: '40' %>
-          <p> 20 € </p>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <%= image_tag "chain2.png", height: '40' %>
-          <p> 20 €</p>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-2">
-          <%= image_tag "other2.png", height: '40' %>
-          <p> Other? </p>
-        </div>
-          </div>
-      </div>

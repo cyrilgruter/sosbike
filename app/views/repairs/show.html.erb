@@ -31,21 +31,38 @@
 
           <div class="col-sm-10">
               <!-- displaying the title -->
-             <h1> Hello <%= @repair.client.first_name %> </h1>
+             <h1> <strong>Hello <%= @repair.client.first_name %>! </strong></h1>
+             <p> Thanks for calling us </p>
               <!-- displaying the address -->
-            <br></br>
             <br></br>
           </div>
 
 
       <div class="row">
-          <p>You have a <strong><%= @repair.category %> </strong>? How grating!</p>
-          <p> Don't worry! One of our <strong>saver </strong> is ready to help you!</p>
+        <% if @repair.category == "flat tire" %>
+       <%= image_tag "tire.png", height: '40' %>
+        <% elsif @repair.category == "worn brakes" %>
+       <%= image_tag "brake2.png", height: '40' %>
+        <% elsif @repair.category == "broken chain" %>
+       <%= image_tag "chain2.png", height: '40' %>
+        <% end %>
+        <p>You have a <strong><%= @repair.category %> </strong>?</p>
+
+          <p> Don't worry! One of our <strong>saver</strong> is ready to help you!</p>
           <p> He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
-          <br></br>
-          <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %>
+          <p> The price of our intervention is:
+        <% if @repair.category == "flat tire" %>
+       <P> <strong>15 euros</strong> </P>
+        <% elsif @repair.category == "worn brakes" %>
+       <p> <strong>15 euros</strong> </p>>
+        <% elsif @repair.category == "broken chain" %>
+       <p> <strong>20 euros</strong> </p>
+        <% end %>
+        <br></br>
+        <div class ="list inline">
+          <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <%= link_to "Modify your informations", repair_path, method: :patch, class: "btn btn-brand" %>
       </div>
-              <br></br>
+      </div>        <br></br>
             <br></br>
 
           <!-- displaying all the features of the spot -->
@@ -56,9 +73,9 @@
     <div class="col-sm-4">
         <div class="row" style="text-align: justify;">
         <h3>This is our meeting point</h3>
-        <address style="margin-bottom: 10px;">
-                <%= @repair.address %>
-              </address>
+        <strong><address style="margin-bottom: 10px;">
+              <%= @repair.address %>
+              </address></strong>
         <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=300x300&sensor=false&maptype=roadmap&markers=color:orange|#{@repair.address}" %>
       </div>
     </div>
