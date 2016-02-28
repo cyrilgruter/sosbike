@@ -7,7 +7,7 @@
         <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
       </div>
       <%= form_tag(new_repair_path, method: :get) do %>
-        <div class="form-inline">
+        <div class="form-inline cd-btn">
           <div class="form-group">
             <div class="col-xs-offset-2 col-xs-8">
               <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address" %>
@@ -16,7 +16,7 @@
           </div>
           <div class="form-group">
             <div class="action-wrapper">
-              <%= submit_tag "Rescue me!", class: "cd-btn btn btn-brand"%>
+              <%= submit_tag "Rescue me!", class: "btn btn-brand"%>
             </div>
           </div>
         </div>
