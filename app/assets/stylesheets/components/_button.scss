@@ -26,6 +26,7 @@
 .btn-brand {
   background-color: $brand-color;
   color: white;
+  margin-left: 40px;
   &:hover {
     background-color: darken($brand-color, 5%);
     color: white;
