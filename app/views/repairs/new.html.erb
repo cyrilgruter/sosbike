@@ -23,7 +23,7 @@
             <h3> Pick your issue on the list </h3>
             <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
             <%= f.input :photo, as: :attachinary %>
-            <%= f.input :photo_cache, as: :hidden %>
+
 
             <% if @current_user %>
               <%= f.submit "Be call back now!", class: "btn btn-brand" %>
@@ -38,3 +38,22 @@
   </div>
 </div>
 
+<div class="row text-center icons-row">
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <%= image_tag "tire.png", height: '40' %>
+          <p> 15 € </p>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <%= image_tag "brake2.png", height: '40' %>
+          <p> 20 € </p>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <%= image_tag "chain2.png", height: '40' %>
+          <p> 20 €</p>
+        </div>
+        <div class="col-xs-6 col-sm-3 col-md-2">
+          <%= image_tag "other2.png", height: '40' %>
+          <p> Other? </p>
+        </div>
+          </div>
+      </div>

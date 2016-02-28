@@ -5,46 +5,67 @@
 <% end %>
 
 
-<div class="container">
-  <div class="raw">
-    <div class="col-xs-12">
-      <div class="show-repair-container">
-      <div class= "card_white">
-        <h1> Hello <%= @repair.client.first_name %>! Thanks for calling us! </h1>
-        <br></br>
-        <p>You have a <strong><%= @repair.category %> </strong>? How grating!</p>
-        <p> Don't worry! One of our <strong>saver </strong> is ready to help you! He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
-        <p> You are here : <strong><%= @repair.address %> </strong></p>
-        <br></br>
-        <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %>
-      </div>
-     </div>
-        <br></br>
-        <div>
-        <% if @repair.photo? %>
-        <%= cl_image_tag @repair.photo.path, width: 200, height: 300, crop: :fill %>
-        <% end %>
-        </div>
-          <div id="map" style="width: 100%; height: 300px;">
 
-        <% content_for(:after_js) do %>
-          <%= javascript_tag do %>
-            $(document).on('ready', function() {
-              handler = Gmaps.build('Google');
-              handler.buildMap({ internal: { id: 'map' } }, function(){
-                markers = handler.addMarkers(<%= raw @markers.to_json %>);
-                handler.bounds.extendWith(markers);
-                handler.fitMapToBounds();
-              });
-            })
-          <% end %>
-          <% end %>
-          <br></br>
-          </div class="center">
-      </div>
-  </div>
+<!-- le code des filles -->
+
+<div class="banner">
+  <span class="banner-bg" style="background-image: url("background-image.jpeg"); backgroun-position: center center;"></span>
+  <span class="banner-gradient"></span>
+
 </div>
 
 
+
+<br></br>
+<br></br>
+
+<div class="container-fluid client-view">
+  <div class="row">
+
+     <div class="col-sm-6 col-md-offset-1">
+      <div class="row">
+
+          <div class="col-sm-2 col-xs-hidden">
+            <%= image_tag "pneu", height: '70', class: 'img-circle', style: 'margin-top: 22px' %>
+          </div>
+
+          <div class="col-sm-10">
+              <!-- displaying the title -->
+             <h1> Hello <%= @repair.client.first_name %> </h1>
+              <!-- displaying the address -->
+            <br></br>
+            <br></br>
+          </div>
+
+
+      <div class="row">
+          <p>You have a <strong><%= @repair.category %> </strong>? How grating!</p>
+          <p> Don't worry! One of our <strong>saver </strong> is ready to help you!</p>
+          <p> He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
+          <br></br>
+          <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %>
+      </div>
+              <br></br>
+            <br></br>
+
+          <!-- displaying all the features of the spot -->
+
+      </div>
+    </div>
+
+    <div class="col-sm-4">
+        <div class="row" style="text-align: justify;">
+        <h3>This is our meeting point</h3>
+        <address style="margin-bottom: 10px;">
+                <%= @repair.address %>
+              </address>
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=300x300&sensor=false&maptype=roadmap&markers=color:orange|#{@repair.address}" %>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
 
 

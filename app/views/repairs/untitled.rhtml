@@ -1,0 +1,79 @@
+<div class="row padded"></div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="show-repair-container">
+      <div class= "card_white">
+        <h1> Hello <%= @repair.client.first_name %>! Thanks for calling us! </h1>
+        <br></br>
+        <p>You have a <strong><%= @repair.category %> </strong>? How grating!</p>
+        <p> Don't worry! One of our <strong>saver </strong> is ready to help you! He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
+        <p> You are here : <strong><%= @repair.address %> </strong></p>
+        <br></br>
+        <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %>
+      </div>
+     </div>
+        <br></br>
+        <div>
+        <% if @repair.photo? %>
+        <%= cl_image_tag @repair.photo.path, width: 200, height: 300, crop: :fill %>
+        <% end %>
+        </div>
+
+<div class="container">
+  <div class="row">
+
+
+    <div class="col-xs-12">
+      <div class="show-repair-container">
+        <div class= "card_white">
+        <h1> Hello <%= @repair.client.first_name %>! Thanks for calling us! </h1>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12">
+      <div class="show-repair-container">
+        <div class= "card_white">
+          <h1> Tout en orange </h1>
+        </div>
+        </div>
+    </div>
+
+
+
+  </div>
+</div>
+
+
+
+<div class="row">
+            <div class="col-xs-6 col-sm-3 col-md-2">
+              <%= image_tag "tire.png", height: '40' %>
+              <p> Flat tire 15 € </p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2">
+              <%= image_tag "brake2.png", height: '40' %>
+              <p> Worm brakes 20 € </p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2">
+              <%= image_tag "chain2.png", height: '40' %>
+              <p> Broken chain </p>
+            </div>
+            <div class="col-xs-6 col-sm-3 col-md-2">
+              <%= image_tag "other2.png", height: '40' %>
+            </div>
+
+
+
+
+<!-- displaying the description -->
+      <div class="row" style="text-align: justify;">
+        <h3>This is our meeting point</h3>
+        <p><%= @repair.address %></p>
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=300x300&sensor=false&maptype=roadmap&markers=color:orange|#{@repair.address}" %>
+      </div>
