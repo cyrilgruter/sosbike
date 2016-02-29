@@ -46,8 +46,9 @@
         </div>
 <!-- Adding a description and a photo if the choice is not on the list -->
         <h3>Your problem is not on the lits? </h3><p>Send us a photo with your phone or leave us a description. We will see if we can handle it! </p>
-
-            <%= f.input :photo, as: :attachinary %>
+            <% if user_signed_in? %>
+              <%= f.input :photo, as: :attachinary %>
+            <% end %>
 <!-- add a description to repair-->
 
 <!-- Different view if the client is signed up or not -->

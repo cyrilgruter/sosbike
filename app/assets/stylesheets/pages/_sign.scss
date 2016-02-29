@@ -1,0 +1,39 @@
+.background {
+  margin:0;
+  min-height: 1000px;
+  // background: image-url('spot-it-3.jpg') no-repeat center fixed;
+  background: url('background-image.jpg') no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  z-index: 0 ;
+  .background-white {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+  // margin-top: -70px;
+}
+
+.bg-gradient {
+  background-image: linear-gradient(to right, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 80%);
+  margin:0;
+  min-height: 1000px;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover; /* version standardisée */
+  background-position: center center;
+}
+
+.background-white {
+  padding: 10px;
+  color: white;
+  border-style: solid;
+  border-color: white;
+  border-radius: 10px;
+  a {
+    color: #F5F5F5;
+  }
+  p {
+    color: #F5F5F5;
+  }
+}
+
+
