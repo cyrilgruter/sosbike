@@ -13,7 +13,7 @@ class PagesController < ApplicationController
       flash[:alert] = "Veuillez entrer un code postal"
       render :home
     elsif @postal_code == "75011"
-
+      #ajouter un path
     else
       flash[:alert] = "Désolé, vous devez être dans le 11ème"
       render :home

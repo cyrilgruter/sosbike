@@ -3,11 +3,11 @@
     <div class="banner">
       <div class="banner-content" style="margin-bottom: 200px">
       <div class="banner-text" style="margin-bottom: 50px">
-        <h2>You will never ride alone !</h2>
+        <h1>You will never ride alone !</h1>
         <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
       </div>
       <%= form_tag(new_repair_path, method: :get) do %>
-        <div class="form-inline">
+        <div class="form-inline cd-btn">
           <div class="form-group">
             <div class="col-xs-offset-2 col-xs-8">
               <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address" %>
