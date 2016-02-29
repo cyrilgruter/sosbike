@@ -1,1 +1,29 @@
 //@import "banner";
+.background-home {
+  background-image: url("background-image.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+}
+.gradient {
+  background: linear-gradient(-225deg, rgba(0, 101, 168, 0.6) 0%, rgba(0, 36, 61, 0.6) 50%);
+  background-position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content {
+  //font-size: 50px;
+  color: white;
+
+  p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+
