@@ -15,7 +15,8 @@
               <h3> Made an error concerning the issue? </h3>
               <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
               <h3> Or concerning your phone number? </h3>
-              <%#= f.input :phone %>
+              <%= f.input :phone %>
+              <%= f.button :submit, "Go!", class: "btn btn-brand btn-full-width" %>
               <% end %>
             </div>
           </div>
@@ -26,21 +27,4 @@
 </div>
 
 
-<%= form_tag(new_repair_path, method: :get) do %>
-        <div class="form-inline">
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-8">
-              <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address" %>
-               <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="action-wrapper">
-              <%= submit_tag "Rescue me!", class: "btn btn-brand"%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
-  </div>
+
