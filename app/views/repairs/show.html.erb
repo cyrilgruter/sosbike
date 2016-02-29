@@ -5,9 +5,9 @@
 <% end %>
 
 <!-- displaying the image of the home page via Cloudinary -->
-<%= cl_image_tag("mbocrf86d5hsfcbdjwh0",
-      width: 1400, height: 300, crop: :fill) %>
-
+<div>
+<%= cl_image_tag("mbocrf86d5hsfcbdjwh0", height: 300, crop: :fill) %>
+</div>
 <br></br>
 <br></br>
 
@@ -58,6 +58,12 @@
       <br></br>
       <br></br>
 
+      <div class= "row">
+      <% if @repair.photo %>
+      <p><strong>The photo you sent to us: </strong> </p>
+      <%= cl_image_tag @repair.photo.path, width: 350, height: 250, crop: :fill %>
+      <% end %>
+      </div>
 
       </div>
     </div>
