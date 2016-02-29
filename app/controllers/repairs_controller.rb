@@ -1,6 +1,6 @@
 class RepairsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :new, :destroy]
-  before_action :set_repair, only: [:show, :edit, :update, :destroy]
+  before_action :set_repair, only: [:show, :edit, :update, :update_saver,:update_status, :destroy]
 
 
 
@@ -50,8 +50,21 @@ class RepairsController < ApplicationController
 
   def update
     @repair.update(repair_params)
-    #@saver =
-    redirect_to repair_path
+    redirect_to repair_path(@repair)
+  end
+
+  def update_saver
+    @repair.saver_id = params[:saver_id]
+    @repair.save
+    # this path below if for the saver = when he decide to handle a reparation, the redirect is in the dashboard
+    redirect_to account_path
+  end
+
+  def update_status
+    @repair.status = params[:status]
+    @repair.save
+    # this path below if for the saver = when he decide to handle a reparation, the redirect is in the dashboard
+    redirect_to account_path
   end
 
   def destroy
@@ -63,7 +76,7 @@ class RepairsController < ApplicationController
 private
 
   def set_repair
-    @repair = Repair.find(params[:id])
+    @repair = Repair.find(params[:id] || params[:repair_id])
   end
 
   def repair_params
