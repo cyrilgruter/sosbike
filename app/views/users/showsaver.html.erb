@@ -1,6 +1,6 @@
 <div class="dashboard-container">
 
-  <h1 class="text-center">Dashboard</h1>
+  <h1 class="text-center dashboard-h1">Dashboard</h1>
   <div class="dashboard-tab">
     <!-- Nav tabs -->
     <ul class="nav nav-tabs" role="tablist">
@@ -12,30 +12,46 @@
     <!-- Tab panes -->
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
-        <%@repairs_saver_nil.each do |repair|%>
-          <ul class="list-unstyled">
-            <li>
-              <strong><%=repair.category%></strong>
-              <%=repair.address%>
-              <%= simple_form_for repair do |f| %>
-                <%= f.input :saver_id,:as => :hidden, :input_html => { :value => current_user.id } %>
-                <%= f.button :submit, "I handle it!", class: "btn btn-success btn-handle" %>
-              <% end %>
-            </li>
-          </ul>
-        <%end%>
+          <%@repairs_saver_nil.each do |repair|%>
+              <ul class="list-unstyled">
+                <li>
+                  <strong><%=repair.category%></strong>
+                  <%=repair.address%>
+                  <%=repair.created_at.time%>
+                  <%= form_tag repair_update_saver_path(repair) do %>
+                    <%= hidden_field_tag :saver_id, current_user.id  %>
+                    <%= submit_tag "I handle it!", class: "btn btn-success btn-handle" %>
+                  <% end %>
+                </li>
+              </ul>
+          <%end%>
       </div>
       <div role="tabpanel" class="tab-pane tab-content-padding" id="profile">
-        <%current_user.missions.each do |mission|%>
+        <%current_user.missions.where(status: "draft").each do |mission|%>
         <ul class="list-unstyled">
-          <li>
+          <li class = "dashboard-li-padding">
             <%=mission.category%>
             <%=mission.address%>
+              <%= form_tag repair_update_status_path(mission) do %>
+                <%= hidden_field_tag :status, mission.status = "done" %>
+                <%= submit_tag "Done !", class: "btn btn-success btn-handle" %>
+              <% end %>
           </li>
         </ul>
         <%end%>
       </div>
-      <div role="tabpanel" class="tab-pane tab-content-padding" id="messages">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi accusantium blanditiis, rerum maiores porro laboriosam, ex iusto consequuntur. Deleniti dolorum dolore quas autem odio quia assumenda amet error laudantium perspiciatis!</div>
+      <div role="tabpanel" class="tab-pane tab-content-padding" id="messages">
+        <%current_user.missions.where(status: "done").each do |mission| %>
+        <ul class="list-unstyled">
+          <li>
+            <i class="fa fa-check"></i>
+            <%=mission.category%>
+            <%=mission.address%>
+            <%=mission.status %>
+          </li>
+        </ul>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>

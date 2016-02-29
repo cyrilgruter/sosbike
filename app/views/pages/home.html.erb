@@ -1,51 +1,37 @@
-<section class="cd-intro">
-  <div class="cd-intro-content bouncy">
-    <div class="banner">
-      <div class="banner-content" style="margin-bottom: 200px">
-      <div class="banner-text" style="margin-bottom: 50px">
-        <h2>You will never ride alone !</h2>
-        <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
-      </div>
-      <%= form_tag(new_repair_path, method: :get) do %>
-        <div class="form-inline">
-          <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-8">
-              <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address" %>
-               <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
-            </div>
-          </div>
-          <div class="form-group">
-            <div class="action-wrapper">
-              <%= submit_tag "Rescue me!", class: "btn btn-brand"%>
-            </div>
-          </div>
-        </div>
-      <% end %>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="wrapper">
-  <div class="container-wrapper">
-    <div class="row">
-       <h1 class="text-center">Comment ça marche ?</h1>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <h2 class="text-center">Etape 1</h2>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <h2 class="text-center">Etape 2</h2>
-        </div>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <h2 class="text-center">Etape 3</h2>
-        </div>
+<div class="background-home">
+  <div class="gradient">
+    <div class="content text-center">
+      <h1>You will never ride alone !</h1>
+      <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
+      <div>
+        <%= form_tag(new_repair_path, method: :get, class: "form-inline") do %>
+          <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address"%>
+          <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
+          <%= submit_tag "Rescue me!", class: "btn btn-brand"%>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
 
+
+
+
+  <div class="wrapper">
+    <div class="container-wrapper">
+      <div class="row">
+         <h1 class="text-center">Comment ça marche ?</h1>
+            <div class="col-xs-12 col-sm-4">
+              <%= image_tag('FTI.png') %>
+            <h2 class="text-center">Oh F**** my tyre is flat!</h2>
+          </div>
+        <div class="col-xs-12 col-sm-4">
+            <h2 class="text-center">Let's call bike's Angels</h2>
+          </div>
+        <div class="col-xs-12 col-sm-4">
+            <h2 class="text-center">Now you can ride</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
