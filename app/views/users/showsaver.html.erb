@@ -13,7 +13,6 @@
     <div class="tab-content">
       <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
           <%@repairs_saver_nil.each do |repair|%>
-            <%if repair.where(saver_id: nil).count > 0 %>
               <ul class="list-unstyled">
                 <li>
                   <strong><%=repair.category%></strong>
@@ -25,9 +24,6 @@
                   <% end %>
                 </li>
               </ul>
-            <%else%>
-              <p>There is no repair for the moment</p>
-            <%end%>
           <%end%>
       </div>
       <div role="tabpanel" class="tab-pane tab-content-padding" id="profile">
