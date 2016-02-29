@@ -59,7 +59,10 @@
       <br></br>
 
       <div class= "row">
-      <%= cl_image_tag @repair.photo.path %>
+      <% if @repair.photo %>
+      <p><strong>The photo you sent to us: </strong> </p>
+      <%= cl_image_tag @repair.photo.path, width: 350, height: 250, crop: :fill %>
+      <% end %>
       </div>
 
       </div>
