@@ -26,6 +26,8 @@ class RepairsController < ApplicationController
     # current_user.phone = params[:phone]
     # current_user.save
     if @repair.save
+      #to send sms decomment the line below
+      #send_sms_to_saver
       redirect_to repair_path(@repair)
     else
       render :new
@@ -66,6 +68,30 @@ private
 
   def repair_params
     params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache)
+  end
+
+  def send_sms_to_saver
+
+    require 'rubygems'
+    require 'twilio-ruby'
+
+    # Get your Account Sid and Auth Token from twilio.com/user/account
+    account_sid = 'AC8061fb151ba03fdd3e78e5c42fec5f45'
+    auth_token = 'f10fd2a4bfde7d1e232b0e029ae4dca2'
+    @client = Twilio::REST::Client.new account_sid, auth_token
+
+    savers = {
+      "laure" => "+33613026359",
+      "matthias" => "+33688833732",
+      "cyril" => "+33662549166"
+    }
+
+    savers.each do |saver, phone|
+      message = @client.account.messages.create(:body => "Une nouvelle requette est créée! Rendez-vous sur le dashboard",
+          :to => phone,     # Replace with your phone number
+          :from => "+33756796785")   # Replace with your Twilio number
+      puts message.sid
+    end
   end
 
 end
