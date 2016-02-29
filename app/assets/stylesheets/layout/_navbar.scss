@@ -2,12 +2,16 @@
 .navbar-wagon {
 
   background: transparent;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
 
   transition: all 0.3s ease;
   display: flex;
-  height: 60px;
   padding: 0px 30px;
   align-items: center;
+  height: 70px;
   justify-content: space-between;
 }
 

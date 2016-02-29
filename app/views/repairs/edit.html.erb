@@ -1,2 +1,30 @@
-<h1>Repairs#edit</h1>
-<p>Find me in app/views/repairs/edit.html.erb</p>
+<div class="background">
+    <div class="bg-gradient flex">
+      <div class="form-group">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+              <div class="background-white">
+              <%= simple_form_for(@repair) do |f| %>
+              <div class="form-for">
+              <%= f.error_notification %>
+              <h3> <i class="fa fa-bicycle"></i> Whant to change your adress? <i class="fa fa-bicycle"></i> <h3>
+      <!-- Get the address from home page -->
+              <%= f.input :address, label: false %>
+      <!-- displaying the category of repair-->
+              <h3> Made an error concerning the issue? </h3>
+              <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false %>
+              <h3> Or concerning your phone number? </h3>
+              <%= f.input :phone %>
+              <%= f.button :submit, "Go!", class: "btn btn-brand btn-full-width" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

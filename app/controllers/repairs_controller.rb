@@ -23,8 +23,7 @@ class RepairsController < ApplicationController
   def create
     @repair = Repair.new(repair_params)
     @repair.client_id = current_user.id
-    # current_user.phone = params[:phone]
-    # current_user.save
+    @repair.phone = current_user.phone
     if @repair.save
       #to send sms decomment the line below
       #send_sms_to_saver
@@ -42,14 +41,22 @@ class RepairsController < ApplicationController
     @photo = params[:photo]
     @photo_cache = params[:photo_cache]
     @client_id= @current_user_id
+
   end
 
   def edit
-
   end
 
   def update
-    @repair.update(repair_params)
+    @repair.assign_attributes(repair_params)
+
+    if @repair.phone_changed?
+      current_user.phone = @repair.phone
+    end
+
+    @repair.save
+    current_user.save if current_user.changed?
+
     redirect_to repair_path(@repair)
   end
 
@@ -80,7 +87,7 @@ private
   end
 
   def repair_params
-    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache)
+    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache, :phone)
   end
 
   def send_sms_to_saver
