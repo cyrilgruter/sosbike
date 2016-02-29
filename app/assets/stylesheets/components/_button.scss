@@ -1,17 +1,18 @@
  .ctabutton{
-   border: solid 1px #343434;
-   width: 200px;
-   height: 50px;
-   margin: 10px auto;
+   border: solid 1px #F79C06;
+   width: 100px;
+   height: 40px;
+    text-align: center;
+    padding-top: 7px;
+    border-radius: 3px;
    background-color: rgba(52,52,52,.1);
-   color: #FFF;
+   color: #F79C06;
    cursor: pointer;
    letter-spacing: 2px;
    text-transform: uppercase;
    font-weight: 300;
    font-style: normal;
    text-decoration: none;
-   line-height: 1em;
    -webkit-animation: text-fade 1.8s;
  }
 
@@ -32,3 +33,5 @@
     color: white;
   }
 }
+
+
