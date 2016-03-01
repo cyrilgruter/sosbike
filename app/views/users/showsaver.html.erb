@@ -14,8 +14,8 @@
       <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
           <%@repairs_saver_nil.each do |repair|%>
               <ul class="list-unstyled">
-                <li>
-                  <strong><%=repair.category%></strong>
+                <li class = "dashboard-li-padding">
+                  <strong><%=repair.category.capitalize%></strong>
                   <%=repair.address%>
                   <%=repair.created_at.time%>
                   <%= form_tag repair_update_saver_path(repair) do %>
@@ -30,11 +30,11 @@
         <%current_user.missions.where(status: "draft").each do |mission|%>
         <ul class="list-unstyled">
           <li class = "dashboard-li-padding">
-            <%=mission.category%>
+            <strong><%=mission.category.capitalize%></strong>
             <%=mission.address%>
               <%= form_tag repair_update_status_path(mission) do %>
                 <%= hidden_field_tag :status, mission.status = "done" %>
-                <%= submit_tag "Done !", class: "btn btn-success btn-handle" %>
+                <%= submit_tag "Done !", class: "btn btn-success btn-handle handle" %>
               <% end %>
           </li>
         </ul>
@@ -45,7 +45,7 @@
         <ul class="list-unstyled">
           <li>
             <i class="fa fa-check"></i>
-            <%=mission.category%>
+            <strong><%=mission.category.capitalize%></strong>
             <%=mission.address%>
             <%=mission.status %>
           </li>
@@ -58,8 +58,13 @@
 
 <script>
     $(document).ready(function() {
-    $('.btn-handle').on('click', function(event) {
-      $(this).toggleClass('img-circle');
-    });
+    $(".handle").on("submit", function(event) {
+
+
+    return false; // prevent it from being submitted (errors, etc.)
+});
   });
 </script>
+
+
+
