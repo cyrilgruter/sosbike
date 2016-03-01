@@ -27,3 +27,14 @@
 #map {
   margin-bottom: 10px;
 }
+
+a {
+  outline: 0;
+  decoration: none;
+  color: orange;
+
+  &:focus {
+    outline: 0;
+  }
+
+}

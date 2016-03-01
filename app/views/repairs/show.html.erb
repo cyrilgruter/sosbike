@@ -27,6 +27,7 @@
 <!-- displaying the name of the client -->
              <h1> <strong>Hello <%= @repair.client.first_name %>! </strong></h1>
              <p> Thanks for calling us </p>
+             <div id="repair_man"></div>
             <br></br>
           </div>
 
@@ -65,6 +66,10 @@
       <p><strong>The photo you sent to us: </strong> </p>
       <%= cl_image_tag @repair.photo.path, width: 350, height: 250, crop: :fill %>
       <% end %>
+      <% if @repair.description %>
+      <p> <strong>The message you sent</strong> </p>
+      <%= @repair.description %>
+      <% end %>
       </div>
 
       </div>
@@ -84,5 +89,30 @@
 
   </div>
 </div>
+
+
+<% content_for(:after_js) do %>
+  <script>
+
+  var pusher = new Pusher('2d2714db74c5bdaeee36', {
+      cluster: 'eu',
+      encrypted: true
+    });
+
+    var channel = pusher.subscribe("repair-<%= @repair.id %>");
+    console.log(channel);
+    channel.bind('my_event', function(data) {
+      $('#repair_man').text(data.repair_man +' is coming');
+    });
+  </script>
+<% end %>
+
+
+
+
+
+
+
+
 
 

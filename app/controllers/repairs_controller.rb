@@ -63,6 +63,8 @@ class RepairsController < ApplicationController
   def update_saver
     @repair.saver_id = params[:saver_id]
     @repair.save
+
+    Pusher.trigger("repair-#{@repair.id}", "my_event", {:repair_man => @repair.saver.email})
     # this path below if for the saver = when he decide to handle a reparation, the redirect is in the dashboard
     redirect_to account_path
   end
@@ -87,7 +89,7 @@ private
   end
 
   def repair_params
-    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache, :phone)
+    params.require(:repair).permit(:status, :category, :address, :client_id, :saver_id, :photo, :photo_cache, :phone, :description)
   end
 
   def send_sms_to_saver

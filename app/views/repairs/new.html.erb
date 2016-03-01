@@ -45,10 +45,20 @@
           </div>
         </div>
 <!-- Adding a description and a photo if the choice is not on the list -->
-        <h3>Your problem is not on the lits? </h3><p>Send us a photo with your phone or leave us a description. We will see if we can handle it! </p>
-            <% if user_signed_in? %>
-              <%= f.input :photo, as: :attachinary %>
-            <% end %>
+<a data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  <p> Click here if your problem is not on the list</p>
+</a>
+<div class="collapse" id="collapseExample">
+  <div class="well">
+    <p>Send us a photo with your phone or leave us a description. We will see if we can handle it! </>
+                <% if user_signed_in? %>
+                  <%= f.input :description, placeholder: "Leave a comment about your issue" %>
+                  <%= f.input :photo, as: :attachinary %>
+                <% end %>
+  </div>
+</div>
+<br></br>
+
 <!-- add a description to repair-->
 
 <!-- Different view if the client is signed up or not -->
@@ -65,4 +75,3 @@
     </div>
   </div>
 </div>
-

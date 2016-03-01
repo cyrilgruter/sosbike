@@ -23,6 +23,7 @@ gem 'simple_form'
 gem 'autoprefixer-rails'
 gem "coffee-rails"
 gem "gmaps4rails"
+gem "pusher"
 
 # gem pour les photos
 gem 'cloudinary'
@@ -34,6 +35,7 @@ gem "jquery-fileupload-rails"
 
 source 'https://rails-assets.org' do
   gem "rails-assets-underscore"
+  gem "rails-assets-pusher"
 end
 
 
