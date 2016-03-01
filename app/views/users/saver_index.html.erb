@@ -1,0 +1,39 @@
+<div class="dashboard-container">
+  <h1 class="text-center reparator-h1">All the reparators</h1>
+    <div class="dashboard-tab">
+       <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Laure</a></li>
+        <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Cyril</a></li>
+        <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Matthias</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
+          <%= simple_form_for([ @savers, @review ]) do |form| %>
+            <%= form.input :content %>
+            <%= form.button :submit %>
+          <% end %>
+        </div>
+        <div role="tabpanel" class="tab-pane tab-content-padding" id="profile">...</div>
+        <div role="tabpanel" class="tab-pane tab-content-padding" id="messages">...</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container">
+    <div class="row">
+        <%@savers.each do |saver|%>
+      <div class="col-xs-12 col-md-4">
+        <%=saver.first_name%>
+      </div>
+        <%end%>
+    </div>
+  </div>
