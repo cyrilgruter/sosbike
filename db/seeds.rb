@@ -11,11 +11,11 @@ User.destroy_all
 Repair.destroy_all
 
 
-billy = User.create!(email: "billy@user.fr", password: "00000000", saver: false)
+billy = User.create!(email: "billy@user.fr", password: "", saver: false)
 
-matthias = User.create!(email: "matthias@reparator.fr", password: "00000000", saver: true)
-cyril = User.create!(email: "cyril@reparator.fr", password: "00000000", saver: true)
-laure = User.create!(email: "laure@reparator.fr", password: "00000000", saver: true)
+matthias = User.create!(email: "matthias@reparator.fr", password: "00000000", first_name: "Matthias", saver: true)
+cyril = User.create!(email: "cyril@reparator.fr", password: "00000000", first_name: "Cyril", saver: true)
+laure = User.create!(email: "laure@reparator.fr", first_name: "Laure", password: "00000000", saver: true)
 
 repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tire", client: billy)
 oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "worn brakes", client: billy)

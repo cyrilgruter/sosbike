@@ -26,7 +26,7 @@ class RepairsController < ApplicationController
     @repair.phone = current_user.phone
     if @repair.save
       #to send sms decomment the line below
-      send_sms_to_saver
+      #send_sms_to_saver
       redirect_to repair_path(@repair)
     else
       render :new
@@ -64,7 +64,7 @@ class RepairsController < ApplicationController
     @repair.saver_id = params[:saver_id]
     @repair.save
 
-    Pusher.trigger("repair-#{@repair.id}", "my_event", {:repair_man => @repair.saver.email})
+    Pusher.trigger("repair-#{@repair.id}", "my_event", {:repair_man => @repair.saver.first_name})
     # this path below if for the saver = when he decide to handle a reparation, the redirect is in the dashboard
     redirect_to account_path
   end
