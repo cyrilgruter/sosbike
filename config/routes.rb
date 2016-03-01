@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'account' => 'users#showsaver'
+  get 'reparators' => 'users#reparator_index'
 
   resources :repairs do
     post "update_saver" => "repairs#update_saver"

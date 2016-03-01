@@ -10,4 +10,7 @@ class UsersController < ApplicationController
     end
   end
   #@user_id =
+  def reparator_index
+    @reparators = User.where(saver: true)
+  end
 end
