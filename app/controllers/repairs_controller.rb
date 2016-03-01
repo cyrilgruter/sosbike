@@ -26,7 +26,7 @@ class RepairsController < ApplicationController
     @repair.phone = current_user.phone
     if @repair.save
       #to send sms decomment the line below
-      #send_sms_to_saver
+      send_sms_to_saver
       redirect_to repair_path(@repair)
     else
       render :new
