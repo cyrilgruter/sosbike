@@ -19,6 +19,8 @@
                   <%=repair.address%>
                   <%=repair.id%>
                   <%=repair.created_at.time%>
+                  <p><strong>First Name: </strong><%=repair.client.first_name%></p>
+                  <p><strong>Phone: </strong><%=repair.client.phone%></p>
                   <%= form_tag repair_update_saver_path(repair) do %>
                     <%= hidden_field_tag :saver_id, current_user.id  %>
                     <%= submit_tag "I handle it!", class: "btn btn-success btn-handle" %>
