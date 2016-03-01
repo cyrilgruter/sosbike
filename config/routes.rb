@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   get 'account' => 'users#showsaver'
-  get 'reparators' => 'users#reparator_index'
+
 
   resources :repairs do
     post "update_saver" => "repairs#update_saver"
     post "update_status" => "repairs#update_status"
-    resources :reviews, only: :create
+
   end
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get "problem" => "pages#problem"
   get "solution" => "pages#solution"
-
+  get "users/:id/reviews/new" => "reviews#new"
 
 
   mount Attachinary::Engine => "/attachinary"

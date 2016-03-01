@@ -12,7 +12,12 @@
 
       <!-- Tab panes -->
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">...</div>
+        <div role="tabpanel" class="tab-pane active tab-content-padding" id="home">
+          <%= simple_form_for([ @savers, @review ]) do |form| %>
+            <%= form.input :content %>
+            <%= form.button :submit %>
+          <% end %>
+        </div>
         <div role="tabpanel" class="tab-pane tab-content-padding" id="profile">...</div>
         <div role="tabpanel" class="tab-pane tab-content-padding" id="messages">...</div>
       </div>
@@ -25,9 +30,9 @@
 
 <div class="container">
     <div class="row">
-        <%@reparators.each do |reparator|%>
+        <%@savers.each do |saver|%>
       <div class="col-xs-12 col-md-4">
-        <%=reparator.first_name%>
+        <%=saver.first_name%>
       </div>
         <%end%>
     </div>

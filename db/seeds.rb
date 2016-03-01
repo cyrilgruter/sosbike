@@ -11,7 +11,7 @@ User.destroy_all
 Repair.destroy_all
 
 
-billy = User.create!(email: "billy@user.fr", password: "00000000", saver: false)
+billy = User.create!(email: "billy@user.fr", first_name: "Billy", password: "00000000", saver: false, phone:"06000000")
 
 matthias = User.create!(email: "matthias@reparator.fr", password: "00000000", saver: true)
 cyril = User.create!(email: "cyril@reparator.fr", password: "00000000", saver: true)
