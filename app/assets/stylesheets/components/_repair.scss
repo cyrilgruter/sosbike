@@ -1,11 +1,13 @@
 
-  .new-repair-container {
+.new-repair-container {
   background-color: white;
   padding: 30px;
   border-radius: 6px;
   width: 55%;
   margin: auto;
-  margin-top: 130px;
+  margin-top: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+
   h1 {
     margin-top: 0;
     font-size: 28px;
@@ -22,8 +24,7 @@
 
 .client-view {
 
-
-h1 {
+  h1 {
     font-size: 28px;
     font-weight: 300;
   }
@@ -31,7 +32,12 @@ h1 {
     font-size: 24px;
     font-weight: 300;
   }
+}
 
+.banner-bike {
+  height: 370px;
+  background-size: cover;
+  background-position: center 60% !important;
 }
 
 

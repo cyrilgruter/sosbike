@@ -6,7 +6,10 @@
 
 <!-- displaying the image of the home page via Cloudinary -->
 
+<div class='banner-bike baner' >
 
+
+</div>
 <br></br>
 <br></br>
 
@@ -57,6 +60,12 @@
       <br></br>
       <br></br>
 
+      <div class= "row">
+      <% if @repair.photo %>
+      <p><strong>The photo you sent to us: </strong> </p>
+      <%= cl_image_tag @repair.photo.path, width: 350, height: 250, crop: :fill %>
+      <% end %>
+      </div>
 
       </div>
     </div>

@@ -8,4 +8,5 @@ class Repair < ActiveRecord::Base
   has_attachment :photo
   validates :client_id, presence: true
   validates :category, inclusion: {in: CATEGORIES}, presence: true
+
 end
