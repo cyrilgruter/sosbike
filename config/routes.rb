@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :repairs do
     post "update_saver" => "repairs#update_saver"
     post "update_status" => "repairs#update_status"
+    resources :reviews, only: :create
   end
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'

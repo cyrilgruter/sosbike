@@ -1,3 +1,3 @@
 class Review < ActiveRecord::Base
-  belongs_to :repair
+  belongs_to :user
 end
