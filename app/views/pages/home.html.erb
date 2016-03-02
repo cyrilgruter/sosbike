@@ -5,7 +5,6 @@
         <div class="content text-center">
           <h1>You will never ride alone !</h1>
           <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
-          <div>
             <%= form_tag(new_repair_path, method: :get, class: "form-inline") do %>
               <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address"%>
               <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
