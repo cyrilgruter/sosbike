@@ -22,7 +22,7 @@ class RepairsController < ApplicationController
 
   def create
     @repair = Repair.new(repair_params)
-    @repair.client_id = current_user.id
+    @repair.client = current_user
     @repair.phone = current_user.phone
     if @repair.save
       #to send sms decomment the line below
