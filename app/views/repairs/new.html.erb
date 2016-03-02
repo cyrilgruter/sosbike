@@ -18,7 +18,7 @@
         <p> We act urgently to repair <strong>flat tires, broken chains, worn brakes </strong> </p>
         <P>Leave us your details, we remind you immediately </P>
     <!-- displaying the new form -->
-        <%= simple_form_for(@repair) do |f| %>
+        <%= simple_form_for(@repair, class: "mon_form") do |f| %>
 
           <div class="form-for">
             <%= f.error_notification %>
@@ -27,7 +27,7 @@
             <%= f.input :address, label: false, input_html: {value: @address} %>
     <!-- displaying the category of repair-->
             <h3> Pick your issue on the list </h3>
-            <%=f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => true %>
+            <%= f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false, selected: @category %>
   <!-- displaying the prices of repairs -->
           <div class="row text-center icons-row">
             <div class="col-xs-6 col-sm-3 col-md-2"><P>tire</P>

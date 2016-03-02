@@ -66,7 +66,7 @@
       <p><strong>The photo you sent to us: </strong> </p>
       <%= cl_image_tag @repair.photo.path, width: 350, height: 250, crop: :fill %>
       <% end %>
-      <% if @repair.description %>
+      <% if @repair.description.present? %>
       <p> <strong>The message you sent</strong> </p>
       <%= @repair.description %>
       <% end %>

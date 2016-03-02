@@ -36,11 +36,15 @@ class RepairsController < ApplicationController
   def new
     @repair = Repair.new
     @current_user = current_user
-    @address= params[:address]
-    @category= params[:category]
+    @address = params[:address]
+    @category = params[:category] || session[:category_before_register]
     @photo = params[:photo]
     @photo_cache = params[:photo_cache]
     @client_id= @current_user_id
+
+    if session[:category_before_register]
+      session[:category_before_register] = nil
+    end
 
   end
 

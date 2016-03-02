@@ -4,9 +4,15 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   protect_from_forgery with: :exception
   before_action :configure_permitted_parameters, if: :devise_controller?
-
+  before_action :keep_track_of_category, if: :devise_controller?
 
   before_action :store_location
+
+  def keep_track_of_category
+    if params[:category_before_register]
+      session[:category_before_register] ||= params[:category_before_register]
+    end
+  end
 
   def store_location
     # store last url - this is needed for post-login redirect to whatever the user last visited.
