@@ -1,17 +1,22 @@
-<div class="container">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
-      <%= @saver.first_name %>
-      <!-- carte de profil -->
-    </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
-      <% @saver.reviews.each do |review| %>
-        <%= review.content %>
-      <% end %>
-      <%= simple_form_for [@saver, @review] do |f| %>
-        <%= f.input :content %>
-        <%= f.button :submit %>
-      <% end %>
+<div class="dashboard-container">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3">
+      <h1 class="text-center dashboard-h1"><%= @saver.first_name %></h1>
+        <!-- carte de profil -->
+      </div>
+      <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-4">
+        <div id="reviews">
+            <% if @saver.reviews.blank? %>
+              Be the first to leave a review for <%= @saver.first_name %>
+            <% else %>
+              <% @saver.reviews.each do |review| %>
+                <%= render 'reviews/show', review: review %>
+              <% end %>
+            <% end %>
+        </div>
+        <%= render 'reviews/formreview', saver: @saver, review: @review %>
+      </div>
     </div>
   </div>
 </div>

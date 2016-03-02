@@ -3,10 +3,17 @@ class ReviewsController < ApplicationController
     @user = User.find(params[:user_id])
     @review = Review.new(review_params)
     @review.user = @user
+
     if @review.save
-      redirect_to user_path(@user)
+      respond_to do |format|
+        format.html {redirect_to user_path(@user)}
+        format.js
+      end
     else
-      render 'users/show'
+      respond_to do |format|
+        format.html {render 'users/show'}
+        format.js
+      end
     end
   end
 
