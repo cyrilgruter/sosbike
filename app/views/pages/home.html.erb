@@ -4,7 +4,7 @@
       <div class="gradient">
         <div class="content text-center">
           <h1>You will never ride alone !</h1>
-          <p>Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
+          <p style="font-size: 150%;">Fuzzy tired ? broken chain ? We come to fix it in less than 20 mins!</p>
             <%= form_tag(new_repair_path, method: :get, class: "form-inline") do %>
               <%= text_field_tag :address, nil, class: "form-control", placeholder: "Address", id: "user_input_autocomplete_address"%>
               <%= text_field_tag :postal_code, nil, class: "form-control", id: "postal_code", :type => "hidden"%>
@@ -26,7 +26,7 @@
          <h1 class="text-center">How to?</h1>
             <div class="col-xs-12 col-sm-4 card-feature">
               <%= image_tag('FTI.png') %>
-            <h2 class="text-center"></h2>
+            <p class="text-center", style="width: 200px">Flate tyre? Worn brakes? Broken chain? Let's connect to Bike's Angels and call a saver!</p>
           </div>
         <div class="col-xs-12 col-sm-4 card-feature">
           <%= image_tag('logo.png') %>
