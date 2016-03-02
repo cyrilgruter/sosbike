@@ -63,9 +63,9 @@
 
 <!-- Different view if the client is signed up or not -->
             <% if @current_user %>
-              <%= f.submit "Be call back now!", class: "btn btn-brand" %>
+              <%= f.submit " Go!", class: "btn btn-brand" %>
             <% else %>
-              <%= link_to 'Sign up to be call back now!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
+              <%= link_to 'Join us!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>
 
           </div>

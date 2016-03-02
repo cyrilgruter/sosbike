@@ -63,6 +63,7 @@ class RepairsController < ApplicationController
   def update_saver
     @repair.saver_id = params[:saver_id]
     @repair.save
+    p @repair
 
     Pusher.trigger("repair-#{@repair.id}", "my_event", {:repair_man => @repair.saver.first_name})
     # this path below if for the saver = when he decide to handle a reparation, the redirect is in the dashboard
