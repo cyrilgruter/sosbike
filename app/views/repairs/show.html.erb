@@ -43,7 +43,7 @@
           <p>You have a <strong><%= @repair.category %> </strong>?</p>
   <!-- displaying the phone of the client -->
             <p> Don't worry! One of our <strong>saver</strong> is ready to help you!</p>
-            <p> He will call you immediately at <strong><%= @repair.client.phone %> </strong></p>
+            <p> He will call you immediately at <strong><%= @repair.client.phone.gsub(/(.{2})(?=.)/, '\1 \2') %> </strong></p>
             <p> The price of our intervention is:
   <!-- displaying the prices of the repairs -->
           <% if @repair.category == "flat tire" %>
