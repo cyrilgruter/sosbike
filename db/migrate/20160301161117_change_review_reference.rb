@@ -1,5 +1,5 @@
 class ChangeReviewReference < ActiveRecord::Migration
   def change
-    rename_column :reviews, :repair_id, :user_id
+    remove_reference :reviews, :repair, index: true
   end
 end

@@ -1,6 +1,11 @@
 class UsersController < ApplicationController
   def index
+    @savers = User.where(saver: true)
+  end
 
+  def show
+    @saver = User.find(params[:id])
+    @review = Review.new
   end
 
  #this is the method for the dashboard of the savers
@@ -10,10 +15,5 @@ class UsersController < ApplicationController
     if @user.saver
       @test = "réussi"
     end
-  end
-
-  def saver_index
-    @savers = User.where(saver: true)
-    @review = Review.new
   end
 end
