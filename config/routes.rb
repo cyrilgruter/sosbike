@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
   get 'account' => 'users#showsaver'
-
-
   resources :repairs do
     post "update_saver" => "repairs#update_saver"
     post "update_status" => "repairs#update_status"
-
   end
   devise_for :users, controllers: { registrations: "registrations" }
   root to: 'pages#home'
   get "problem" => "pages#problem"
   get "solution" => "pages#solution"
-  get "users/:id/reviews/new" => "reviews#new"
-
+  resources :users, only: [:index, :show] do
+    resources :reviews, only: [:create]
+  end
 
   mount Attachinary::Engine => "/attachinary"
   # The priority is based upon order of creation: first created -> highest priority.
