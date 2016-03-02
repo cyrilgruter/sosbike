@@ -5,20 +5,23 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+User.where(email: ["thomas@user.fr", "jean@saver.fr", "arthur@saver.fr", "lauren@saver.fr"]).destroy_all
+
+# User
+thomas = User.create!(email: "thomas@user.fr", first_name: "Thomas", password: "00000000", saver: false, phone:"06000000")
 
 
-User.destroy_all
-Repair.destroy_all
+# Réparateur
+jean = User.create!(email: "jean@saver.fr", password: "00000000", first_name: "Jean", saver: true)
+arthur = User.create!(email: "arthur@saver.fr", password: "00000000", first_name: "Arthur", saver: true)
+lauren = User.create!(email: "lauren@saver.fr", first_name: "Lauren", password: "00000000", saver: true)
 
+# Repairs
+repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tire", client: thomas)
+oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "worn brakes", client: thomas)
+wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "broken chain", client: thomas, saver: arthur)
 
-
-billy = User.create!(email: "billy@user.fr", first_name: "Billy", password: "00000000", saver: false, phone:"06000000")
-
-
-matthias = User.create!(email: "matthias@reparator.fr", password: "00000000", first_name: "Matthias", saver: true)
-cyril = User.create!(email: "cyril@reparator.fr", password: "00000000", first_name: "Cyril", saver: true)
-laure = User.create!(email: "laure@reparator.fr", first_name: "Laure", password: "00000000", saver: true)
-
-repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tire", client: billy)
-oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "worn brakes", client: billy)
-wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "broken chain", client: billy, saver: matthias)
+review1 = Review.create!(content:"very good")
+review2 = Review.create!(content:"so fast, I save my day")
+review3 = Review.create!(content:"a very nice saver and very efficient !")
+review4 = Review.create!(content:"Sooooo nice !")
