@@ -1,3 +1,17 @@
-<h1>Repairs#destroy</h1>
-<p>Find me in app/views/repairs/destroy.html.erb</p>
+<<% content_for(:title) do %> You are deleting your order:
+  <%= @repair.address %>
+<% end %>
+
+<!-- displaying the image of the home page via Cloudinary -->
+
+<div class='banner-bike baner' >
+
+</div>
+<br></br>
+<br></br>
+<div class= "container">
+<h2> Goodbye <%= @repair.client.first_name %>! </h2>
+<p> Thanks for visiting us!</p>
+<br></br>
 <%= link_to "ok", repairs_path, class: "btn btn-brand" %>
+</div>
