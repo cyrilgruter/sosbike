@@ -32,6 +32,6 @@ oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "
 wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "broken chain", client: thomas, saver: arthur)
 
 review1 = Review.create!(content:"very good", user_id: jean.id, rating: 3)
-review2 = Review.create!(content:"so fast, I save my day", user_id: jean.id)
+review2 = Review.create!(content:"so fast, I save my day", user_id: jean.id, rating: 3)
 review3 = Review.create!(content:"a very nice saver and very efficient !", user_id: lauren.id, rating: 4)
 review4 = Review.create!(content:"Sooooo nice !", user_id: lauren.id,rating: 5)
