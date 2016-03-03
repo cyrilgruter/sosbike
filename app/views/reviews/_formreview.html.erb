@@ -12,7 +12,7 @@
 <% end %>
 <% content_for :after_js do %>
   <%= javascript_tag do %>
-
+    $(document).ready(function(){
       $('.rating-star').on('click', function() {
         var rating = $(this).data('stars');
         for (i = 1; i <= rating; i++) {
@@ -23,5 +23,6 @@
         }
         $('#review_rating').val(rating);
       });
+    });
   <% end %>
 <% end %>

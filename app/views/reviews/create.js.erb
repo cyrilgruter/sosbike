@@ -2,7 +2,16 @@
 <% if @review.errors.any? %>
   // Render new review form with errors
   $('#new_review').html("<%= j render 'reviews/formreview', saver: @saver, review: @review %>");
-
+  $('.rating-star').on('click', function() {
+        var rating = $(this).data('stars');
+        for (i = 1; i <= rating; i++) {
+          $('#rating_' + i).addClass("rating-star-highlight");
+        }
+        for (i = rating + 1; i <= 5; i++) {
+          $('#rating_' + i).removeClass("rating-star-highlight");
+        }
+        $('#review_rating').val(rating);
+      });
 <% else %>
   // Create a paragraph for the new review. But hide it.
   var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();
