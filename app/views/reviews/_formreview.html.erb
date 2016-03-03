@@ -1,4 +1,29 @@
 <%= simple_form_for [saver, review], remote: true do |f| %>
   <%= f.input :content %>
+  <%= f.input :rating, as: :hidden %>
+  <ul class="communication_rating list-unstyle list-inline">
+    <% (1..5).each do |i| %>
+      <li class="rating-star" data-stars="<%= i %>" data-nature="rating" id="<%= "rating_#{i}" %>">
+        <i class="fa fa-star"></i>
+      </li>
+    <% end %>
+  </ul>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
+<% content_for :after_js do %>
+  <script>
+    $(document).ready(function() {
+      $('.rating-star').on('click', function() {
+        var rating = $(this).data('stars');
+        for (i = 1; i <= rating; i++) {
+          $('#rating_' + i).addClass("rating-star-highlight")
+        }
+        for (i = rating + 1; i <= 5; i++) {
+          $('#rating_' + i).removeClass("rating-star-highlight")
+        }
+        $('#review_rating').val(rating);
+      })
+    })
+  </script>
+<% end %>
+
