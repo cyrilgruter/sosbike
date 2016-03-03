@@ -53,7 +53,9 @@
           <% elsif @repair.category == "broken chain" %>
          <p> <strong>20 euros</strong> </p>
           <% end %>
+           <%= link_to "All about you", account_path %>
           <br></br>
+
           <div class ="list inline">
             <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <%= link_to "Modify your informations", edit_repair_path(@repair), class: "btn btn-brand" %>
         </div>
