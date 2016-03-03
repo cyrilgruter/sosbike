@@ -26,7 +26,7 @@
             <%= f.input :address, label: false, input_html: {value: @address} %>
             <!-- displaying the category of repair-->
             <h3> Pick your issue on the list </h3>
-            <%= f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => false, selected: @category %>
+            <%= f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => true, selected: @category %>
             <!-- displaying the prices of repairs -->
             <div class="row text-center icons-row">
               <div class="col-xs-6 col-sm-3 col-md-2"><P>tire</P>
