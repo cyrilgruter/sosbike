@@ -1,10 +1,8 @@
-//$('#reviews').append('<%= j render 'reviews/show', review: @review %>');
-
-// app/views/reviews/create.js.erb
 // Here you will write *javascript* that would be executed by the browser
 <% if @review.errors.any? %>
   // Render new review form with errors
-  $('#new_review').html("<%= j render 'reviews/form', saver: @saver, review: @review %>");
+  $('#new_review').html("<%= j render 'reviews/formreview', saver: @saver, review: @review %>");
+
 <% else %>
   // Create a paragraph for the new review. But hide it.
   var new_review = $("<%= j render 'reviews/show', review: @review %>").hide();

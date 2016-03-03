@@ -11,19 +11,17 @@
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
 <% content_for :after_js do %>
-  <script>
-    $(document).ready(function() {
+  <%= javascript_tag do %>
+
       $('.rating-star').on('click', function() {
         var rating = $(this).data('stars');
         for (i = 1; i <= rating; i++) {
-          $('#rating_' + i).addClass("rating-star-highlight")
+          $('#rating_' + i).addClass("rating-star-highlight");
         }
         for (i = rating + 1; i <= 5; i++) {
-          $('#rating_' + i).removeClass("rating-star-highlight")
+          $('#rating_' + i).removeClass("rating-star-highlight");
         }
         $('#review_rating').val(rating);
-      })
-    })
-  </script>
+      });
+  <% end %>
 <% end %>
-
