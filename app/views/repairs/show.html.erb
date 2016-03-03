@@ -6,10 +6,7 @@
 
 <!-- displaying the image of the home page via Cloudinary -->
 
-<div class='banner-bike baner' >
-
-</div>
-
+<div class='banner-bike baner' ></div>
 
 <div class="container-fluid client-view">
   <div class="row">
@@ -26,7 +23,6 @@
              <h1> <strong>Hello <%= @repair.client.first_name %>! </strong></h1>
              <p> Thanks for calling us </p>
              <div id="repair_man", class ="repair_man_name"></div>
-            <br></br>
           </div>
 
 <!-- displaying the category of the client's problem -->
@@ -40,8 +36,8 @@
           <% end %>
           <p>You have a <strong><%= @repair.category %> </strong>?</p>
   <!-- displaying the phone of the client -->
-            <p> Don't worry! One of our <strong>saver</strong> is ready to help you!</p>
-            <p> He will call you immediately at <strong><%= @repair.client.phone.gsub(/\s+/, "").gsub(/^\+?33/, "0").gsub(/(.{2})(?=.)/, '\1 \2') %> </strong></p>
+            <p> Don't worry! One of our <strong>saver</strong> will come to help you!</p>
+            <p> You will be called soon at <strong><%= @repair.client.phone.gsub(/\s+/, "").gsub(/^\+?33/, "0").gsub(/(.{2})(?=.)/, '\1 \2') %> </strong></p>
             <p> The price of our intervention is:
   <!-- displaying the prices of the repairs -->
           <% if @repair.category == "flat tire" %>
@@ -51,9 +47,8 @@
           <% elsif @repair.category == "broken chain" %>
          <p> <strong>20 euros</strong> </p>
           <% end %>
-           <%= link_to "All about you", account_path %>
-          <br></br>
-
+           <p><%= link_to "All about you", account_path %></p>
+           <p><%= link_to "Give a review", users_path %></p>
           <div class ="list inline">
             <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <%= link_to "Modify your informations", edit_repair_path(@repair), class: "btn btn-brand" %>
         </div>
@@ -81,12 +76,9 @@
         <strong><address style="margin-bottom: 10px;">
               <%= @repair.address %>
               </address></strong>
-        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=300x300&sensor=false&maptype=roadmap&markers=color:orange|#{@repair.address}" %>
+        <%= image_tag "https://maps.googleapis.com/maps/api/staticmap?zoom=15&size=450x300&sensor=false&maptype=roadmap&markers=color:orange|#{@repair.address}" %>
       </div>
     </div>
-
-
-
   </div>
 </div>
 
