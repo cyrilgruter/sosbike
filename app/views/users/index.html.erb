@@ -4,13 +4,12 @@
     <h1 class="text-center dashboard-h1">All the Savers</h1>
       <% @savers.each do |saver| %>
         <div class="col-xs-10 col-xs-offset-1 col-sm-4 col-sm-offset-0">
-          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=  image_path('bike-review.jpeg') %>);">
+          <div class="card" style="background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= ENV["BASE_DELIVERY_URL"]+'/image/upload/'+saver.photo.path %>');">
             <div class="card-category"></div>
             <div class="card-description">
               <h2><%= saver.first_name %></h2>
               <p>Very cool stuff, useful and smart</p>
             </div>
-            <img class="card-user avatar" src="user.jpg">
             <%= link_to "", user_path(saver), class: "card-link" %>
           </div>
         </div>
@@ -18,3 +17,5 @@
     </div>
   </div>
 </div>
+
+<%= ENV["SECRET_KEY_BASE"] %>
