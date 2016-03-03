@@ -62,9 +62,9 @@
 
             <!-- Different view if the client is signed up or not -->
             <% if @current_user %>
-            <%= f.submit " Go!", class: "btn btn-brand" %>
+            <%= f.submit " Click here for a rescue!", class: "btn btn-danger" %>
             <% else %>
-            <%= link_to 'Join us!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
+            <%= link_to 'Register to order a rescue!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>
 
           </div>
