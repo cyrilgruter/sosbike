@@ -1,4 +1,11 @@
 
+
+<% content_for(:title) do %>
+<%= @current_user.first_name %>, your informations
+<% end %>
+
+
+
 <div class="container-fluid client-view">
   <div class="row">
 
@@ -24,6 +31,8 @@
   <p>Date: <%= problem.created_at %></p><br></br>
   <p>Adress: <%= problem.address %></p><br></br>
   <p>Repair: <%= problem.category %></p>
+  <br></br>
+  <br></br>
 <% end %>
 <br></br>
 <h1> Your personnal informations </h1>
