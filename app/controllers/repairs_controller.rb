@@ -110,7 +110,7 @@ private
     }
 
     savers.each do |saver, phone|
-      message = @client.account.messages.create(:body => "Une nouvelle requette est créée! Rendez-vous sur le dashboard",
+      message = @client.account.messages.create(:body => "Une nouvelle requette est créée! Rendez-vous sur www.bikeangles.fr/account",
           :to => phone,     # Replace with your phone number
           :from => "+33756796785")   # Replace with your Twilio number
       puts message.sid
