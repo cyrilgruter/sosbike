@@ -13,7 +13,9 @@ User.destroy_all
 User.where(email: ["cyril@user.com", "john@saver@saver.com", "arthur@saver.com", "lauren@saver.com"]).destroy_all
 
 # User
+
 cyril = User.create!(email: "cyril@user.com", first_name: "Cyril", password: "00000000", saver: false, phone:"0765632290")
+
 
 
 # Réparateur
