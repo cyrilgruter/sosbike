@@ -16,11 +16,12 @@
               <ul class="list-unstyled">
                 <li class = "dashboard-li-padding">
                   <strong><%=repair.category.capitalize%></strong>
-                  <%=repair.address%>
-                  <%=repair.id%>
-                  <%=repair.created_at.time%>
-                  <p><strong>First Name: </strong><%=repair.client.first_name%></p>
-                  <p><strong>Phone: </strong><%=repair.client.phone%></p>
+                  <br></br>
+                  <p>Address: <%=repair.address%></p>
+                  <p>First Name: <%=repair.client.first_name%></p>
+                  <p>Phone: <%=repair.client.phone.gsub(/\s+/, "").gsub(/^\+?33/, "0").gsub(/(.{2})(?=.)/, '\1 \2')%></p>
+                  <p> Date: <%=repair.created_at.strftime("%e %b %Y %H:%M:%S%p")%></p>
+                  <p>Client ID: <%=repair.id%></p>
                   <%= form_tag repair_update_saver_path(repair) do %>
                     <%= hidden_field_tag :saver_id, current_user.id  %>
                     <%= submit_tag "I handle it!", class: "btn btn-success btn-handle" %>
