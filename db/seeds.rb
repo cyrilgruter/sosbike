@@ -10,10 +10,10 @@ Review.destroy_all
 Repair.destroy_all
 User.destroy_all
 
-User.where(email: ["thomas@user.com", "john@saver@saver.com", "arthur@saver.com", "lauren@saver.com"]).destroy_all
+User.where(email: ["cyril@user.com", "john@saver@saver.com", "arthur@saver.com", "lauren@saver.com"]).destroy_all
 
 # User
-thomas = User.create!(email: "thomas@user.com", first_name: "Thomas", password: "00000000", saver: false, phone:"0765632290")
+thomas = User.create!(email: "cyril@user.com", first_name: "Cyril", password: "00000000", saver: false, phone:"0765632290")
 
 
 # Réparateur
@@ -27,9 +27,9 @@ lauren_photo = Cloudinary::Uploader.upload("http://img.over-blog.com/300x200/4/2
 lauren = User.create!(email: "lauren@saver.com", first_name: "Lauren", password: "00000000", saver: true, photo: lauren_photo)
 
 # Repairs
-repu = Repair.create!(address: "67 Waterloo Avenue, London", category: "flat tyre", client: thomas)
-oberkampf = Repair.create!(address: "56 Backer Street, London", category: "worn brakes", client: thomas)
-wagon = Repair.create!(address: "16 Gaudelet Villa, London", category: "broken chain", client: thomas, saver: arthur)
+repu = Repair.create!(address: "67 Waterloo Avenue, London", category: "flat tyre", client: cyril)
+oberkampf = Repair.create!(address: "56 Backer Street, London", category: "worn brakes", client: cyril)
+wagon = Repair.create!(address: "16 Gaudelet Villa, London", category: "broken chain", client: cyril, saver: arthur)
 
 review1 = Review.create!(content:"Arrived so soon, so cutre BTW!", user_id: john.id, rating: 3)
 review2 = Review.create!(content:"So fast, John saved my day", user_id: john.id, rating: 3)
