@@ -5,3 +5,21 @@
   border-radius: 10px;
 
 }
+
+.form-home{
+  margin-left: 10px;
+  margin-right: 10px;
+  input{
+    margin-bottom: 20px;
+  }
+  @media screen and (max-width: 600px) {
+    width: 200px;
+    margin: auto;
+  }
+
+}
+.form-home2{
+
+  margin-bottom: 20px;
+
+}

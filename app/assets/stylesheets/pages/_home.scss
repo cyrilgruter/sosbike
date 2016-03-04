@@ -27,3 +27,18 @@
   }
 }
 
+body{
+  -webkit-font-smoothing: antialiased;
+}
+.fancy-underlined{
+  margin: auto;
+  border-bottom: 5px solid #F99A35;
+}
+
+.step1{
+  width: 160px;
+}
+
+.step2{
+  max-width: 535px;
+}
