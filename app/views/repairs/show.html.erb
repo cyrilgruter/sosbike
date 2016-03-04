@@ -47,7 +47,7 @@
             <p> You will be called soon at <strong><%= @repair.client.phone.gsub(/\s+/, "").gsub(/^\+?33/, "0").gsub(/(.{2})(?=.)/, '\1 \2') %> </strong></p>
             <p> The price of our intervention is:
   <!-- displaying the prices of the repairs -->
-          <% if @repair.category == "flat tire" %>
+          <% if @repair.category == "flat tyre" %>
          <P> <strong>15 euros</strong> </P>
           <% elsif @repair.category == "worn brakes" %>
          <p> <strong>15 euros</strong> </p>
