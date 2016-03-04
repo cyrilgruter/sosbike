@@ -38,6 +38,7 @@
             <%=mission.address%>
               <%= form_tag repair_update_status_path(mission) do %>
                 <%= hidden_field_tag :status, mission.status = "done" %>
+                <br></br>
                 <%= submit_tag "Done !", class: "btn btn-success btn-handle handle" %>
               <% end %>
           </li>
