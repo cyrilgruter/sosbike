@@ -27,7 +27,7 @@ lauren_photo = Cloudinary::Uploader.upload("http://img.over-blog.com/300x200/4/2
 lauren = User.create!(email: "lauren@saver.fr", first_name: "Lauren", password: "00000000", saver: true, photo: lauren_photo)
 
 # Repairs
-repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tire", client: thomas)
+repu = Repair.create!(address: "45 Boulevard de la Republique 75011 Paris", category: "flat tyre", client: thomas)
 oberkampf = Repair.create!(address: "100 rue Oberkampf 75011 Paris", category: "worn brakes", client: thomas)
 wagon = Repair.create!(address: "16 villa Gaudelet 75011 Paris", category: "broken chain", client: thomas, saver: arthur)
 
