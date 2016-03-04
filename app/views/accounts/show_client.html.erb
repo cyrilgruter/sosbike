@@ -18,28 +18,25 @@
 
           <div class="col-sm-10">
 <!-- displaying the name of the client -->
-             <h1> <strong>All about <%= current_user.first_name %></strong></h1>
-
-              <br></br>
-              <h1>The reparations of your bike:</h1>
-              <br></br>
-
+              <h1>
+               <strong>All about <%= current_user.first_name %></strong>
+              </h1>
               <% @current_user.problems.each do |problem| %>
-                <p>Date: <%= problem.created_at.strftime("%d %b. %Y") %></p><br></br>
-                <p>Adress: <%= problem.address %></p><br></br>
-                <p>Repair: <%= problem.category %></p>
+                <div class='card-problem'>
+                  <p>Date: <%= problem.created_at.strftime("%d %b. %Y") %></p>
+                  <p>Adress: <%= problem.address %></p>
+                  <p>Repair: <%= problem.category %></p>
+                </div>
                 <br></br>
               <% end %>
 
-
+               <div class='card-problem'>
               <h1> Your personnal informations </h1>
-              <br></br>
               <p> First name: <%= current_user.first_name %></p>
-              <br></br>
               <p> Email: <%= current_user.email %></p>
-              <br></br>
               <p> Phone number: <%= current_user.phone.gsub(/\s+/, "").gsub(/^\+?33/, "0").gsub(/(.{2})(?=.)/, '\1 \2') %></p>
-              <br></br>
+               </div>
+               <br></br>
               <%= link_to "get back to home", root_path, class: "btn btn-brand" %>
         </div>
       </div>
