@@ -13,7 +13,9 @@ User.destroy_all
 User.where(email: ["cyril@user.com", "john@saver@saver.com", "arthur@saver.com", "lauren@saver.com"]).destroy_all
 
 # User
-thomas = User.create!(email: "cyril@user.com", first_name: "Cyril", password: "00000000", saver: false, phone:"0765632290")
+
+cyril = User.create!(email: "cyril@user.com", first_name: "Cyril", password: "00000000", saver: false, phone:"0765632290")
+
 
 
 # Réparateur
@@ -31,7 +33,7 @@ repu = Repair.create!(address: "67 Waterloo Avenue, London", category: "flat tyr
 oberkampf = Repair.create!(address: "56 Backer Street, London", category: "worn brakes", client: cyril)
 wagon = Repair.create!(address: "16 Gaudelet Villa, London", category: "broken chain", client: cyril, saver: arthur)
 
-review1 = Review.create!(content:"Arrived so soon, so cutre BTW!", user_id: john.id, rating: 3)
+review1 = Review.create!(content:"Arrived so soon, so efficient!", user_id: john.id, rating: 3)
 review2 = Review.create!(content:"So fast, John saved my day", user_id: john.id, rating: 3)
 review3 = Review.create!(content:"A very nice saver and very efficient !", user_id: lauren.id, rating: 4)
 review4 = Review.create!(content:"Sooooo nice !", user_id: lauren.id,rating: 5)
