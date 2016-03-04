@@ -13,11 +13,11 @@
                 <%= f.error_notification %>
 
                   <div class="form-inputs">
-                  <%= f.input :first_name, required: true, placeholder: "votre prénom" %>
-                  <%= f.input :email, required: true, autofocus: true, placeholder: "votre mail" %>
-                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "8 caractères minimum" %>
+                  <%= f.input :first_name, required: true, placeholder: "Your first_name" %>
+                  <%= f.input :email, required: true, autofocus: true, placeholder: "Your mail" %>
+                  <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), placeholder: "8 caracters minimum" %>
                   <%= f.input :password_confirmation, required: true %>
-                  <%= f.input :phone, required: true, placeholder: "votre numéro de téléphone pour être rappelé immédiatement"%>
+                  <%= f.input :phone, required: true, placeholder: "Your phone number- We call you now!"%>
               </div>
 
                 <div class="form-actions">

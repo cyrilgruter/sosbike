@@ -24,7 +24,7 @@
             <!-- Get the address from home page -->
             <%= f.input :address, label: false, input_html: {value: @address} %>
             <!-- displaying the category of repair-->
-            <h3> Pick your issue on the list </h3>
+            <h3> Pick your issue in the list </h3>
             <%= f.input :category, as: :select, label: false, collection: Repair::CATEGORIES, :include_blank => true, selected: @category %>
             <!-- displaying the prices of repairs -->
             <div class="row text-center icons-row">
@@ -63,7 +63,7 @@
             <% if @current_user %>
             <%= f.submit " Click here for a rescue!", class: "btn btn-danger" %>
             <% else %>
-            <%= link_to 'Register to order a rescue!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
+            <%= link_to 'Order a rescue!',  new_user_registration_path, class: "btn btn-brand btn-full-width cd-btn main-action"%>
             <% end%>
 
           </div>

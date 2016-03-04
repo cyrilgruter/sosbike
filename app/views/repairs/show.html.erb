@@ -57,7 +57,7 @@
            <p><%= link_to "All about you", account_path %></p>
            <p><%= link_to "Add a review about your saver", users_path %></p>
           <div class ="list inline">
-            <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <%= link_to "Modify your informations", edit_repair_path(@repair), class: "btn btn-brand" %>
+            <%= link_to "Cancel your demand", repair_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-brand" %> <br></br><%= link_to "Modify your informations", edit_repair_path(@repair), class: "btn btn-brand" %>
         </div>
       </div>
       <br></br>
